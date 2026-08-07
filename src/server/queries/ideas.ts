@@ -113,7 +113,7 @@ export async function getMyIdeas(): Promise<{ ideas: IdeaSummary[]; error: strin
     const supabase = await createSupabaseServerClient();
     const { data: { user } } = await supabase.auth.getUser();
 
-    if (!user) return { ideas: [], error: 'Not authenticated' };
+    if (!user) return { ideas: [], error: '로그인이 필요합니다.' };
 
     const { data, error } = await supabase
       .from('ideas')
@@ -148,7 +148,7 @@ export async function getIdeaStudioContext(ideaId: string): Promise<IdeaStudioCo
     const supabase = await createSupabaseServerClient();
     const { data: { user } } = await supabase.auth.getUser();
 
-    if (!user) return { idea: null, conversationId: null, messages: [], error: 'Not authenticated' };
+    if (!user) return { idea: null, conversationId: null, messages: [], error: '로그인이 필요합니다.' };
 
     // Fetch the idea
     const { data: idea, error: ideaError } = await supabase

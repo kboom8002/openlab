@@ -279,7 +279,7 @@ export function SelectionBoardClient({ challenge, candidates: initialCandidates 
                         🗣️ 심의 의결 사유 ({new Date(candidate.latestDecision.decidedAt).toLocaleDateString("ko-KR")})
                       </p>
                       <p style={{ fontSize: "0.88rem", color: "var(--ink-primary)", margin: 0, whiteSpace: "pre-wrap" }}>
-                        "{candidate.latestDecision.reason}"
+                        &quot;{candidate.latestDecision.reason}&quot;
                       </p>
                     </div>
                   )}
