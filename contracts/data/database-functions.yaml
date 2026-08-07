@@ -1,0 +1,34 @@
+contract_id: WOL-CONTRACT-DATA-007
+version: 1.0.0
+status: approved
+source_doc: WOL-DATA-012
+authorization_helpers:
+- name: private.has_platform_role
+  security_definer: true
+- name: private.is_org_member
+  security_definer: true
+- name: private.manages_challenge
+  security_definer: true
+- name: private.owns_idea
+  security_definer: true
+- name: private.is_assigned_evaluator
+  security_definer: true
+- name: private.can_view_sponsor_snapshot
+  security_definer: true
+- name: private.can_access_storage_resource
+  security_definer: true
+transaction_functions:
+- create_idea_draft
+- accept_ai_suggestion
+- submit_idea
+- submit_evaluation
+- record_selection_decision
+- grant_showcase_permission
+- revoke_showcase_permission
+- build_sponsor_report_snapshot
+security_definer_rules:
+- set_empty_search_path
+- schema_qualify_objects
+- revoke_public_execute
+- explicit_grants
+- internal_authorization_recheck

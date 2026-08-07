@@ -1,0 +1,49 @@
+task_id: WOL-TASK-0000
+title: Replace with task title
+status: draft
+owner: product-engineering
+
+objective: >
+  Describe one testable user or system outcome.
+
+non_objectives:
+  - List excluded work.
+
+context_files:
+  - AGENTS.md
+  - docs/INDEX.md
+
+allowed_paths:
+  - src/features/example/**
+
+forbidden_paths:
+  - src/ai/**
+  - supabase/migrations/**
+
+roles:
+  - participant
+
+invariants:
+  - State the rights, privacy, authorization, and product conditions that cannot change.
+
+acceptance_tests:
+  - id: WOL-AC-0001
+    given: A clear precondition
+    when: A user or system action occurs
+    then: A verifiable result occurs
+
+commands:
+  - pnpm lint
+  - pnpm typecheck
+  - pnpm test
+  - pnpm build
+
+required_artifacts:
+  - implementation-plan
+  - implementation-report
+  - test-report
+
+approval_required_for:
+  - dependency installation
+  - database migration application
+  - deployment

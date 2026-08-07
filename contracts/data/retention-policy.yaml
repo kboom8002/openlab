@@ -1,0 +1,20 @@
+contract_id: WOL-CONTRACT-DATA-006
+version: 0.9.0
+status: review
+source_doc: WOL-DATA-009
+legal_review_required: true
+classes:
+  draft: 12_months_after_last_activity_proposed
+  submitted_idea: 3_years_after_challenge_proposed
+  conversation_raw: 12_months_after_last_activity_proposed
+  agent_payload: 90_days_proposed
+  evaluation: 3_years_after_challenge_proposed
+  consent: 5_years_after_end_proposed
+  audit: 3_years_proposed
+  export_file: 7_days
+  sponsor_report: 3_years_after_agreement_proposed
+  pilot: 3_years_after_completion_proposed
+deletion:
+  hard_delete_direct_ui: false
+  workflow_required: true
+  backup_reapply_tombstone: true

@@ -1,0 +1,24 @@
+version: 1
+topology: single_repository_single_workspace
+roots:
+  src/app: routing_and_entrypoints
+  src/components/ui: shadcn_base_ui_components
+  src/components/shared: cross_domain_presentation
+  src/features: feature_ui_and_domain
+  src/server: queries_actions_services_repositories
+  src/ai: graphs_nodes_prompts_providers_schemas_evals
+  src/lib: infrastructure_only
+  supabase: migrations_policies_tests_seed
+forbidden:
+- from: client_component
+  to: src/server
+- from: client_component
+  to: src/ai
+- from: src/components
+  to: src/server
+- from: src/ai
+  to: src/app
+- from: src/ai
+  to: react_components
+- from: src/app/page
+  to: supabase_sdk_direct_query

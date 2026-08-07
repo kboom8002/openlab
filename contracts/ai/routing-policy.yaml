@@ -1,0 +1,16 @@
+version: 1
+graph_routes:
+  studio_message: idea-studio
+  passport_generate: passport-synthesis
+  preflight: preflight
+  ai_evaluation: evaluation
+priority:
+- active_interrupt
+- safety_hold
+- explicit_stage
+- critical_missing_field
+- next_stage
+restrictions:
+- evaluation_requires_submitted_version
+- studio_requires_owner
+- sponsor_cannot_call_conversation_routes

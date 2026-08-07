@@ -1,0 +1,28 @@
+version: 1
+source_types:
+- user_original
+- user_edited
+- ai_suggested
+- external_source
+- manager_edited
+run_trace:
+- run_id
+- thread_id
+- graph_version
+- node_version
+- prompt_version
+- schema_version
+- model_key
+- input_allowlist
+- input_hash
+- output_snapshot
+- usage
+- latency
+- provider_request_id
+- validation_status
+- safety_status
+- interrupt_link
+forbidden:
+- hidden_chain_of_thought
+- provider_secret
+- unrelated_full_user_record

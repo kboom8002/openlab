@@ -1,0 +1,252 @@
+contract_id: WOL-CONTRACT-DATA-001
+version: 1.0.0
+status: approved
+source_docs:
+- WOL-DATA-001
+- WOL-DATA-002
+schema_strategy:
+  application_schema: public
+  helper_schema: private
+  storage_schema: storage
+  all_public_tables_rls_required: true
+  id_type: uuid
+  enum_strategy: text_check_constraint
+tables:
+- name: profiles
+  group: identity
+  purpose: auth.users product profile
+  access_profile: owner_self
+  retention_class: user_lifecycle
+  rls_required: true
+  exposed: true
+- name: platform_role_assignments
+  group: identity
+  purpose: platform-wide roles
+  access_profile: admin_only
+  retention_class: role_expiry
+  rls_required: true
+  exposed: true
+- name: organizations
+  group: identity
+  purpose: legal or operating organizations
+  access_profile: mixed
+  retention_class: archive
+  rls_required: true
+  exposed: true
+- name: organization_members
+  group: identity
+  purpose: organization-scoped membership
+  access_profile: member_scoped
+  retention_class: membership_expiry
+  rls_required: true
+  exposed: true
+- name: challenge_series
+  group: program
+  purpose: multi-challenge program root
+  access_profile: public_or_manager
+  retention_class: archive
+  rls_required: true
+  exposed: true
+- name: sponsorships
+  group: program
+  purpose: sponsor relationship and approvals
+  access_profile: manager_and_sponsor_limited
+  retention_class: contract
+  rls_required: true
+  exposed: true
+- name: monthly_challenges
+  group: program
+  purpose: monthly challenge configuration
+  access_profile: public_or_manager
+  retention_class: archive
+  rls_required: true
+  exposed: true
+- name: challenge_tracks
+  group: program
+  purpose: challenge tracks
+  access_profile: public_or_manager
+  retention_class: archive
+  rls_required: true
+  exposed: true
+- name: challenge_participations
+  group: program
+  purpose: participant enrollment
+  access_profile: owner_and_manager
+  retention_class: challenge_plus_retention
+  rls_required: true
+  exposed: true
+- name: ideas
+  group: idea
+  purpose: idea lifecycle root
+  access_profile: owner_assignment_manager
+  retention_class: idea_retention
+  rls_required: true
+  exposed: true
+- name: idea_versions
+  group: idea
+  purpose: versioned Idea Passport
+  access_profile: parent_permission
+  retention_class: immutable_when_submitted
+  rls_required: true
+  exposed: true
+- name: idea_field_provenance
+  group: idea
+  purpose: field-level origin and confirmation
+  access_profile: parent_permission
+  retention_class: version_retention
+  rls_required: true
+  exposed: true
+- name: idea_claims
+  group: idea
+  purpose: fact experience assumption impact
+  access_profile: parent_permission
+  retention_class: version_retention
+  rls_required: true
+  exposed: true
+- name: idea_evidence_items
+  group: idea
+  purpose: evidence metadata
+  access_profile: parent_permission
+  retention_class: version_retention
+  rls_required: true
+  exposed: true
+- name: idea_attachments
+  group: idea
+  purpose: storage object metadata
+  access_profile: parent_permission
+  retention_class: file_retention
+  rls_required: true
+  exposed: true
+- name: conversations
+  group: ai
+  purpose: idea coaching thread
+  access_profile: owner_internal
+  retention_class: conversation_retention
+  rls_required: true
+  exposed: true
+- name: conversation_messages
+  group: ai
+  purpose: user and AI messages
+  access_profile: owner_internal
+  retention_class: conversation_retention
+  rls_required: true
+  exposed: true
+- name: agent_runs
+  group: ai
+  purpose: model prompt output and cost metadata
+  access_profile: owner_summary_internal_raw
+  retention_class: agent_payload_retention
+  rls_required: true
+  exposed: true
+- name: evaluation_assignments
+  group: evaluation
+  purpose: evaluator assignment
+  access_profile: assignee_manager
+  retention_class: evaluation_retention
+  rls_required: true
+  exposed: true
+- name: evaluations
+  group: evaluation
+  purpose: rubric results
+  access_profile: assignee_manager_release_projection
+  retention_class: evaluation_retention
+  rls_required: true
+  exposed: true
+- name: pairwise_votes
+  group: evaluation
+  purpose: anonymous comparison vote
+  access_profile: insert_self_manager_aggregate
+  retention_class: evaluation_retention
+  rls_required: true
+  exposed: true
+- name: selection_decisions
+  group: evaluation
+  purpose: qualitative selection gate
+  access_profile: manager_participant_after_publish
+  retention_class: evaluation_retention
+  rls_required: true
+  exposed: true
+- name: pilots
+  group: pilot
+  purpose: pilot lifecycle root
+  access_profile: participant_partner_manager
+  retention_class: pilot_retention
+  rls_required: true
+  exposed: true
+- name: pilot_participants
+  group: pilot
+  purpose: pilot user and organization roles
+  access_profile: pilot_scoped
+  retention_class: pilot_retention
+  rls_required: true
+  exposed: true
+- name: pilot_updates
+  group: pilot
+  purpose: pilot progress and result records
+  access_profile: pilot_scoped
+  retention_class: pilot_retention
+  rls_required: true
+  exposed: true
+- name: consent_documents
+  group: rights
+  purpose: versioned consent document
+  access_profile: active_read_admin_write
+  retention_class: legal_retention
+  rls_required: true
+  exposed: true
+- name: consent_acceptances
+  group: rights
+  purpose: user consent acceptance
+  access_profile: owner_admin
+  retention_class: legal_retention
+  rls_required: true
+  exposed: true
+- name: showcase_permissions
+  group: rights
+  purpose: explicit showcase grant
+  access_profile: grantor_manager
+  retention_class: permission_retention
+  rls_required: true
+  exposed: true
+- name: notifications
+  group: operations
+  purpose: in-app notifications
+  access_profile: owner
+  retention_class: short_term
+  rls_required: true
+  exposed: true
+- name: background_jobs
+  group: operations
+  purpose: async job state
+  access_profile: service_admin
+  retention_class: operational
+  rls_required: true
+  exposed: true
+- name: audit_events
+  group: operations
+  purpose: append-only protected audit
+  access_profile: admin_auditor
+  retention_class: audit_retention
+  rls_required: true
+  exposed: true
+- name: sponsor_report_snapshots
+  group: reporting
+  purpose: aggregate immutable report
+  access_profile: sponsor_org_manager
+  retention_class: report_retention
+  rls_required: true
+  exposed: true
+- name: sponsor_showcase_items
+  group: reporting
+  purpose: consented showcase projection
+  access_profile: sponsor_org_manager
+  retention_class: permission_bound
+  rls_required: true
+  exposed: true
+- name: sponsor_pilot_summaries
+  group: reporting
+  purpose: approved pilot summary
+  access_profile: sponsor_org_manager
+  retention_class: report_retention
+  rls_required: true
+  exposed: true

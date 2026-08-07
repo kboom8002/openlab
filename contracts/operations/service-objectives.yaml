@@ -1,0 +1,12 @@
+contract_id: WOL-CONTRACT-OPS-002
+version: 1.0.0
+status: conditional
+source_doc: WOL-OPS-002
+slo: baseline_required
+rpo: baseline_required
+rto: baseline_required
+incident_levels:
+  SEV-1: [private_data_exposure, auth_or_rls_bypass, destructive_corruption]
+  SEV-2: [submission_unavailable, evaluation_unavailable, ai_core_flow_unavailable]
+  SEV-3: [non_critical_degradation]
+

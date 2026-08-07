@@ -1,0 +1,46 @@
+version: 1
+default_server_runtime: nodejs
+edge_runtime:
+  default: false
+  requires_adr: true
+operations:
+- id: public_read
+  primary: next_node
+  secondary:
+  - database
+  shared_cache: allowed_public_only
+- id: protected_read
+  primary: next_node
+  secondary:
+  - database
+  shared_cache: forbidden
+- id: draft_save
+  primary: next_node_server_action
+  secondary:
+  - database
+  shared_cache: forbidden
+- id: ai_coach_stream
+  primary: next_node_route_handler
+  secondary:
+  - langgraph
+  - ai_provider
+  - database
+  shared_cache: forbidden
+- id: ai_evaluation
+  primary: job_runtime
+  secondary:
+  - langgraph
+  - ai_provider
+  - database
+  shared_cache: forbidden
+- id: sponsor_report
+  primary: next_node
+  secondary:
+  - sponsor_read_model
+  shared_cache: forbidden_by_default
+browser_forbidden:
+- service_role
+- provider_secret
+- raw_sql
+- canonical_authorization
+- system_prompt

@@ -1,0 +1,13 @@
+contract_id: WOL-CONTRACT-API-003
+version: 1.0.0
+status: approved
+source_doc: WOL-API-003
+endpoints:
+  - {id: API-AI-001, method: POST, path: /api/ai/idea-stream, auth: idea_owner, transport: sse, idempotency: required}
+  - {id: API-AI-002, method: POST, path: '/api/ai/runs/[runId]/resume', auth: run_owner, idempotency: required}
+  - {id: API-FILE-001, method: POST, path: /api/uploads/sign, auth: authenticated, idempotency: required}
+  - {id: API-EXPORT-001, method: POST, path: /api/exports, auth: object_reader, idempotency: required}
+  - {id: API-EXPORT-002, method: GET, path: '/api/exports/[jobId]', auth: job_owner}
+  - {id: API-HOOK-001, method: POST, path: '/api/webhooks/[provider]', auth: signed_callback, idempotency: replay_key}
+  - {id: API-OPS-001, method: GET, path: /api/health/live, auth: none}
+  - {id: API-OPS-002, method: GET, path: /api/health/ready, auth: protected_monitor}

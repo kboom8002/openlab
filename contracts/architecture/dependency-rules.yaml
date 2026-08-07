@@ -1,0 +1,34 @@
+version: 1
+rules:
+- id: DEP-001
+  action: deny
+  from: src/components/**
+  to: src/server/**
+- id: DEP-002
+  action: deny
+  from: client_components
+  to: src/ai/**
+- id: DEP-003
+  action: deny
+  from: src/ai/**
+  to: src/app/**
+- id: DEP-004
+  action: deny
+  from: src/ai/**
+  to: react
+- id: DEP-005
+  action: deny
+  from: src/lib/**
+  to: src/features/**
+- id: DEP-006
+  action: deny
+  from: src/app/**/page.tsx
+  to: '@supabase/supabase-js'
+- id: DEP-007
+  action: allow
+  from: src/server/**
+  to: src/features/*/domain/**
+- id: DEP-008
+  action: allow
+  from: src/ai/**
+  to: src/ai/schemas/**

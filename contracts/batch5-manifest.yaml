@@ -1,0 +1,31 @@
+batch: 5
+name: supabase-data-architecture-rls-storage
+status: complete
+created_at: '2026-07-31'
+inherits:
+- batch0
+- batch1
+- batch2
+- batch3
+- batch4
+outputs:
+  data_core_docs: 13
+  data_contracts: 9
+  supabase_contract_docs: 4
+  logical_tables: 34
+  storage_buckets: 9
+  governance_report: 1
+canonical_decisions:
+  auth_identity: auth_users_plus_public_profiles
+  role_model: platform_roles_plus_organization_memberships
+  all_exposed_public_tables_rls: true
+  submitted_version_immutable: true
+  evaluation_version_pinned: true
+  sponsor_access: snapshot_read_model_only
+  sponsor_suppression_threshold: 5
+  storage_default: private_signed_url
+  migration: append_only_local_first
+  retention_status: legal_review_required
+next_batch:
+  id: 6
+  name: langgraph-prompts-ai-evals

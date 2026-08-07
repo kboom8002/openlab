@@ -1,0 +1,18 @@
+WELLB OPENLAB PRODUCTION UPGRADE QA — BATCH 14
+Date: 2026-08-01
+RESULT: APPLICATION QA PASS / PRODUCTION APPROVAL PENDING
+
+Automated: YAML/JSON parse, unique IDs, internal links, evaluation weights
+(25/25/50/0), JDC proposal state, Sponsor read-model and RLS boundaries: PASS
+
+Manual: Batch inheritance, VS-03 Antigravity onboarding trace, open-decision
+non-fabrication: PASS
+
+NOT_RUN: pnpm lint/typecheck/test/build, migration, E2E, deployment.
+Reason: documentation-only repository; no runtime or production authorization.
+
+Runtime: peer dependencies, dependency audit, ESLint, strict TypeScript, Vitest, Next.js production build: PASS
+DB runtime: Supabase reset and pgTAP RLS: NOT_RUN — local CLI/runtime unavailable
+Deployment: NOT_RUN — staging environment, credentials and human approval required
+
+Detailed report: docs/00-governance/batch-14-production-upgrade-report.md

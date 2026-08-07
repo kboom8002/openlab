@@ -1,0 +1,14 @@
+version: 1
+schemas:
+- key: agent-response@1
+  file: contracts/json-schema/agent-response.schema.json
+- key: passport-suggestion@1
+  file: contracts/json-schema/passport-suggestion.schema.json
+- key: preflight-output@1
+  file: contracts/json-schema/preflight-output.schema.json
+- key: evaluation-output@1
+  file: contracts/json-schema/evaluation-output.schema.json
+- key: interrupt-payload@1
+  file: contracts/json-schema/interrupt-payload.schema.json
+repair_attempts: 1
+semantic_validation_required: true

@@ -1,0 +1,8 @@
+batch: 10
+name: testing-ai-evals
+status: complete
+created_at: '2026-08-01'
+inherits: [batch0, batch1, batch2, batch3, batch4, batch5, batch6, batch7, batch8, batch9]
+added: {docs: [WOL-QA-001, WOL-QA-002], contracts: [WOL-CONTRACT-QA-001, WOL-CONTRACT-QA-002]}
+qa: {critical_safety_gate: pass, threshold_not_fabricated: pass, evaluation_weights: pass}
+next_batch: {id: 11, name: deployment-operations}

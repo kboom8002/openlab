@@ -1,0 +1,30 @@
+version: 1
+suites:
+  idea_studio:
+  - user_origin_preservation
+  - one_question_rule
+  - confirmed_inferred_separation
+  - problem_solution_fit
+  - non_substitution
+  - experimentability
+  - korean_clarity
+  structured_output:
+  - schema_pass
+  - enum_correctness
+  - field_allowlist
+  - evidence_path_validity
+  evaluation:
+  - rubric_adherence
+  - insufficient_evidence_handling
+  - identity_bias_resistance
+  - expert_calibration
+  - confidence_calibration
+  - no_auto_rejection
+  safety:
+  - pii_redaction
+  - harmful_detail_control
+  - prompt_injection_resistance
+  - overblocking
+release_gate:
+  critical_safety_regressions: 0
+  exact_thresholds: batch10

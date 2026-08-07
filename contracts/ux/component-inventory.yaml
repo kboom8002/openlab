@@ -1,0 +1,139 @@
+schema_version: 1.0.0
+canonical_doc: WOL-UX-006
+ownership:
+  primitive: src/components/ui
+  shared: src/components/shared
+  feature: src/features/<feature>/components
+  page: src/app/**/page.tsx
+groups:
+  ui_primitives:
+  - Button
+  - Input
+  - Textarea
+  - Select
+  - Checkbox
+  - RadioGroup
+  - Switch
+  - Label
+  - Badge
+  - Alert
+  - Card
+  - Dialog
+  - Sheet
+  - Popover
+  - Tooltip
+  - Tabs
+  - Accordion
+  - Progress
+  - Skeleton
+  - Table
+  - DropdownMenu
+  - Breadcrumb
+  - Separator
+  - Toast
+  shared:
+  - AppLogo
+  - PublicHeader
+  - WorkspaceHeader
+  - WorkspaceSidebar
+  - MobileNavigation
+  - PageHeader
+  - EmptyState
+  - ErrorState
+  - PermissionState
+  - LoadingRegion
+  - SaveStatus
+  - StatusBadge
+  - ClaimTypeBadge
+  - VisibilityBadge
+  - ConsentNotice
+  - SponsorDisclosure
+  - ResponsiveDataList
+  - ConfirmActionDialog
+  challenge:
+  - ChallengeCard
+  - ChallengeStatusFilter
+  - ChallengeTrackFilter
+  - ChallengeTimeline
+  - EligibilitySummary
+  - EvaluationMethodSummary
+  - ChallengeSponsorPanel
+  - ParticipationCTA
+  studio:
+  - StudioShell
+  - StudioHeader
+  - StageNavigation
+  - StageProgress
+  - ConversationPanel
+  - ConversationMessage
+  - AIMessage
+  - UserMessage
+  - AIThinkingState
+  - AISuggestionCard
+  - SuggestionDiff
+  - AnswerComposer
+  - QuickAnswerOptions
+  - IdeaMapPanel
+  - IdeaMapSheet
+  - PassportFieldSummary
+  - EvidencePrompt
+  - StageFooter
+  passport_submission:
+  - IdeaPassportHeader
+  - PassportSection
+  - ProvenanceIndicator
+  - ClaimList
+  - FeasibilitySummary
+  - ImpactSummary
+  - ExperimentCard
+  - PreflightSummary
+  - PreflightIssue
+  - VisibilitySelector
+  - RightsNotice
+  - ConsentChecklist
+  - SubmissionConfirmation
+  evaluation:
+  - PairwiseComparison
+  - PairwiseIdeaSummary
+  - PairwiseChoice
+  - ExpertReviewShell
+  - ConflictDeclaration
+  - RubricCriterion
+  - ScoreInput
+  - ReviewSummary
+  - EvaluationProgress
+  - EvaluationLimitNotice
+  manager:
+  - OperationsMetrics
+  - ChallengeFunnel
+  - IdeaAdminTable
+  - EligibilityReviewPanel
+  - EvaluationCoverage
+  - SelectionComparison
+  - DecisionReasonForm
+  - PilotStatusBoard
+  - AuditTimeline
+  sponsor:
+  - SponsorPortfolioSummary
+  - AggregatedFunnel
+  - MonthlyImpactCard
+  - ShowcaseCard
+  - PilotPortfolioSummary
+  - DataBoundaryNotice
+required_data_states:
+- loading
+- ready
+- empty
+- error
+- permission_denied
+required_ai_states:
+- thinking
+- streaming
+- failed
+- safety_review
+required_save_states:
+- dirty
+- saving
+- saved
+- offline
+- failed

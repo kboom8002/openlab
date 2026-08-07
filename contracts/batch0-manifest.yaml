@@ -1,0 +1,23 @@
+batch: 0
+name: ground-truth-and-stack-lock
+status: complete
+completed_at: "2026-07-31T18:44:00+09:00"
+product: WELLB OPENLAB
+repo_slug: wellb-openlab
+artifacts:
+  - README.md
+  - docs/INDEX.md
+  - docs/00-governance/source-of-truth-map.md
+  - docs/00-governance/assumptions-register.md
+  - docs/00-governance/open-decisions.md
+  - docs/00-governance/terminology-policy.md
+  - docs/00-governance/document-status-policy.md
+  - docs/00-governance/stack-lock.md
+  - docs/00-governance/batch-0-ground-truth-report.md
+next_batch:
+  id: 1
+  name: antigravity-bootstrap
+  entry_gate:
+    - review P0 decisions
+    - approve source of truth map
+    - approve stack responsibility boundaries

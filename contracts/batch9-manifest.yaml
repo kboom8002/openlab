@@ -1,0 +1,9 @@
+batch: 9
+name: security-rights-governance
+status: complete
+created_at: '2026-08-01'
+inherits: [batch0, batch1, batch2, batch3, batch4, batch5, batch6, batch7, batch8]
+added: {docs: [WOL-SEC-001, WOL-SEC-002, WOL-SEC-003], contracts: [WOL-CONTRACT-SEC-001, WOL-CONTRACT-SEC-002]}
+open_preserved: [D-S02, D-S03, D-S04, D-S05, D-SP01, D-SP02, D-SP05]
+qa: {rights_non_transfer: pass, sponsor_boundary: pass, no_fabricated_retention: pass}
+next_batch: {id: 10, name: testing-ai-evals}

@@ -1,0 +1,31 @@
+contract_id: WOL-CONTRACT-DATA-008
+version: 1.0.0
+status: approved
+source_doc: WOL-DATA-007
+source_of_truth: supabase/migrations
+append_only: true
+dashboard_changes_forbidden_as_source: true
+order:
+- extensions_private_helpers
+- identity_organization
+- challenge_sponsorship
+- idea_version_provenance
+- consent_rights
+- ai_interaction
+- evaluation_selection
+- pilot
+- sponsor_read_model
+- storage
+- audit_jobs
+- performance_indexes
+required_checks:
+- db_reset_local
+- yaml_contract_validation
+- rls_allow_tests
+- rls_deny_tests
+- database_type_generation
+- typecheck
+remote_commands:
+  db_push: approval_required
+  db_reset_linked: denied
+  production_migration: release_gate_required

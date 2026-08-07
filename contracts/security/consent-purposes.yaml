@@ -1,0 +1,12 @@
+contract_id: WOL-CONTRACT-SEC-002
+version: 1.0.0
+status: approved
+source_doc: WOL-SEC-002
+purposes:
+  - {id: service_processing, required: true, bundled_with_optional: false}
+  - {id: public_publication, required: false, revocable: true, manager_approval: true}
+  - {id: sponsor_showcase, required: false, revocable: true, sponsor_raw_draft_access: false}
+  - {id: ai_provider_processing, required: conditional, separate_notice: true, field_allowlist: true}
+retention_period: pending_legal_review
+deletion_checkpoint_policy: pending_D-S05
+

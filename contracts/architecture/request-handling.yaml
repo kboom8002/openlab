@@ -1,0 +1,38 @@
+version: 1
+entrypoints:
+  server_action:
+    use_for:
+    - same_origin_short_mutation
+    - form_action
+    must:
+    - session
+    - input_schema
+    - object_authorization
+    - domain_service
+    - typed_result
+    must_not:
+    - streaming
+    - webhook
+    - external_api_contract
+  route_handler:
+    use_for:
+    - ai_stream
+    - webhook
+    - oauth_callback
+    - file_signing
+    - job_enqueue
+    - external_api
+    must:
+    - auth_when_required
+    - input_schema
+    - domain_service
+    - public_error_code
+    must_not:
+    - inline_complex_domain_logic
+idempotency_required:
+- idea_submit
+- evaluation_submit
+- pairwise_vote
+- job_enqueue
+- webhook
+- pilot_transition

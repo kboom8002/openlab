@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wellbopenlab.local/schemas/agent-response@1",
+  "title": "AgentResponse",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "agent",
+    "stage",
+    "intent",
+    "confirmedInformation",
+    "inferredInformation",
+    "missingInformation",
+    "warnings"
+  ],
+  "properties": {
+    "agent": {
+      "type": "string"
+    },
+    "stage": {
+      "type": "string"
+    },
+    "intent": {
+      "type": "string"
+    },
+    "userSummary": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 1200
+    },
+    "confirmedInformation": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 20
+    },
+    "inferredInformation": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 20
+    },
+    "missingInformation": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 20
+    },
+    "nextQuestion": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "text",
+            "reason",
+            "answerType"
+          ],
+          "properties": {
+            "text": {
+              "type": "string",
+              "maxLength": 500
+            },
+            "reason": {
+              "type": "string",
+              "maxLength": 500
+            },
+            "answerType": {
+              "enum": [
+                "text",
+                "single_select",
+                "multi_select",
+                "range",
+                "confirmation"
+              ]
+            },
+            "options": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 5
+            }
+          }
+        }
+      ]
+    },
+    "suggestedUpdate": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "passport-suggestion.schema.json"
+        }
+      ]
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "code",
+          "severity",
+          "message"
+        ],
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "severity": {
+            "enum": [
+              "info",
+              "warning",
+              "high"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "maxLength": 500
+          }
+        }
+      },
+      "maxItems": 10
+    },
+    "stopReason": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 500
+    }
+  }
+}

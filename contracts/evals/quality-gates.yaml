@@ -1,0 +1,19 @@
+contract_id: WOL-CONTRACT-QA-001
+version: 1.0.0
+status: approved
+source_docs: [WOL-QA-001, WOL-QA-002]
+blocking:
+  - yaml_json_parse
+  - internal_link_integrity
+  - enum_consistency
+  - evaluation_weight_total_100
+  - rls_cross_user_denial
+  - submitted_version_immutability
+  - sponsor_no_private_leakage
+  - ai_no_automatic_rejection
+  - accessibility_critical_zero
+ai:
+  critical_safety_privacy_pass_rate: 1.0
+  general_quality_threshold: baseline_required
+  change_requires: [registry_update, golden_set_run, regression_diff, evaluation_report]
+

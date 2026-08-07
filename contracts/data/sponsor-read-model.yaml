@@ -1,0 +1,35 @@
+contract_id: WOL-CONTRACT-DATA-009
+version: 1.0.0
+status: approved
+source_doc: WOL-DATA-011
+tables:
+- sponsor_report_snapshots
+- sponsor_showcase_items
+- sponsor_pilot_summaries
+default_metrics:
+- funnel_counts
+- track_distribution
+- category_distribution
+- evaluation_completion
+- pilot_ready_count
+- pilot_status
+- anonymous_satisfaction
+prohibited_fields:
+- user_name
+- email
+- phone
+- raw_private_idea
+- raw_conversation
+- agent_raw_payload
+- evaluator_identity
+- conflict_detail
+suppression_threshold: 5
+publication_flow:
+- generate
+- allowlist_transform
+- suppress_small_cells
+- immutable_snapshot
+- manager_approve
+- publish
+- audit_access
+direct_operational_table_access: false

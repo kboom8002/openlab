@@ -1,0 +1,330 @@
+schema_version: 1.0.0
+canonical_doc: WOL-UX-002
+default_locale: ko-KR
+routes:
+- route_id: R-PUB-001
+  path: /
+  surface: public
+  auth: none
+  roles:
+  - anonymous
+  - authenticated
+  page_doc: WOL-PAGE-001
+  indexing: index
+- route_id: R-PUB-002
+  path: /challenges
+  surface: public
+  auth: none
+  roles:
+  - anonymous
+  - authenticated
+  page_doc: WOL-PAGE-002
+  indexing: index
+- route_id: R-PUB-003
+  path: /challenges/[slug]
+  surface: public
+  auth: none
+  roles:
+  - anonymous
+  - authenticated
+  page_doc: WOL-PAGE-003
+  indexing: index_when_published
+- route_id: R-PUB-004
+  path: /ideas
+  surface: public
+  auth: none
+  roles:
+  - anonymous
+  - authenticated
+  page_doc: WOL-PAGE-011
+  indexing: noindex
+- route_id: R-PUB-005
+  path: /ideas/[ideaId]
+  surface: public
+  auth: none
+  roles:
+  - anonymous
+  - authenticated
+  page_doc: WOL-PAGE-019
+  indexing: noindex
+- route_id: R-PUB-006
+  path: /how-it-works
+  surface: public
+  auth: none
+  roles:
+  - anonymous
+  - authenticated
+  page_doc: WOL-PAGE-020
+  indexing: index
+- route_id: R-PUB-007
+  path: /organizations
+  surface: public
+  auth: none
+  roles:
+  - anonymous
+  - authenticated
+  page_doc: WOL-PAGE-020
+  indexing: index
+- route_id: R-PUB-008
+  path: /about
+  surface: public
+  auth: none
+  roles:
+  - anonymous
+  - authenticated
+  page_doc: WOL-PAGE-020
+  indexing: index
+- route_id: R-PUB-009
+  path: /faq
+  surface: public
+  auth: none
+  roles:
+  - anonymous
+  - authenticated
+  page_doc: WOL-PAGE-020
+  indexing: index
+- route_id: R-AUTH-001
+  path: /sign-in
+  surface: auth
+  auth: none
+  roles:
+  - anonymous
+  page_doc: WOL-PAGE-004
+  indexing: noindex
+- route_id: R-AUTH-002
+  path: /auth/callback
+  surface: auth
+  auth: callback
+  roles:
+  - anonymous
+  page_doc: WOL-PAGE-004
+  indexing: noindex
+- route_id: R-AUTH-003
+  path: /onboarding
+  surface: auth
+  auth: required
+  roles:
+  - authenticated
+  page_doc: WOL-PAGE-004
+  indexing: noindex
+- route_id: R-AUTH-004
+  path: /access-denied
+  surface: auth
+  auth: mixed
+  roles:
+  - anonymous
+  - authenticated
+  page_doc: WOL-PAGE-004
+  indexing: noindex
+- route_id: R-PT-001
+  path: /dashboard
+  surface: participant
+  auth: required
+  roles:
+  - participant
+  page_doc: WOL-PAGE-005
+  indexing: noindex
+- route_id: R-PT-002
+  path: /my/ideas
+  surface: participant
+  auth: required
+  roles:
+  - participant
+  page_doc: WOL-PAGE-017
+  indexing: noindex
+- route_id: R-PT-003
+  path: /ideas/new
+  surface: participant
+  auth: required
+  roles:
+  - participant
+  page_doc: WOL-PAGE-018
+  indexing: noindex
+- route_id: R-PT-004
+  path: /ideas/[ideaId]/studio
+  surface: participant
+  auth: required
+  roles:
+  - idea_owner
+  page_doc: WOL-PAGE-006
+  indexing: noindex
+- route_id: R-PT-005
+  path: /ideas/[ideaId]/passport
+  surface: participant
+  auth: required
+  roles:
+  - idea_owner
+  - authorized_reviewer
+  page_doc: WOL-PAGE-007
+  indexing: noindex
+- route_id: R-PT-006
+  path: /ideas/[ideaId]/submit
+  surface: participant
+  auth: required
+  roles:
+  - idea_owner
+  page_doc: WOL-PAGE-008
+  indexing: noindex
+- route_id: R-PT-007
+  path: /evaluate/pairwise
+  surface: participant
+  auth: required
+  roles:
+  - eligible_evaluator
+  page_doc: WOL-PAGE-009
+  indexing: noindex
+- route_id: R-PT-008
+  path: /notifications
+  surface: participant
+  auth: required
+  roles:
+  - authenticated
+  page_doc: WOL-PAGE-016
+  indexing: noindex
+- route_id: R-PT-009
+  path: /profile
+  surface: participant
+  auth: required
+  roles:
+  - authenticated
+  page_doc: WOL-PAGE-016
+  indexing: noindex
+- route_id: R-EX-001
+  path: /expert
+  surface: expert
+  auth: required
+  roles:
+  - expert
+  page_doc: WOL-PAGE-021
+  indexing: noindex
+- route_id: R-EX-002
+  path: /expert/reviews/[assignmentId]
+  surface: expert
+  auth: required
+  roles:
+  - assigned_expert
+  page_doc: WOL-PAGE-010
+  indexing: noindex
+- route_id: R-EX-003
+  path: /expert/guide
+  surface: expert
+  auth: required
+  roles:
+  - expert
+  page_doc: WOL-PAGE-021
+  indexing: noindex
+- route_id: R-MG-001
+  path: /admin
+  surface: manager
+  auth: required
+  roles:
+  - challenge_manager
+  - admin
+  page_doc: WOL-PAGE-012
+  indexing: noindex
+- route_id: R-MG-002
+  path: /admin/challenges
+  surface: manager
+  auth: required
+  roles:
+  - challenge_manager
+  - admin
+  page_doc: WOL-PAGE-022
+  indexing: noindex
+- route_id: R-MG-003
+  path: /admin/challenges/[challengeId]
+  surface: manager
+  auth: required
+  roles:
+  - challenge_manager
+  - admin
+  page_doc: WOL-PAGE-022
+  indexing: noindex
+- route_id: R-MG-004
+  path: /admin/ideas
+  surface: manager
+  auth: required
+  roles:
+  - challenge_manager
+  - admin
+  page_doc: WOL-PAGE-022
+  indexing: noindex
+- route_id: R-MG-005
+  path: /admin/evaluations
+  surface: manager
+  auth: required
+  roles:
+  - challenge_manager
+  - admin
+  page_doc: WOL-PAGE-022
+  indexing: noindex
+- route_id: R-MG-006
+  path: /admin/selection
+  surface: manager
+  auth: required
+  roles:
+  - challenge_manager
+  - authorized_selection_member
+  - admin
+  page_doc: WOL-PAGE-013
+  indexing: noindex
+- route_id: R-MG-007
+  path: /admin/pilots
+  surface: manager
+  auth: required
+  roles:
+  - challenge_manager
+  - pilot_owner
+  - admin
+  page_doc: WOL-PAGE-015
+  indexing: noindex
+- route_id: R-MG-008
+  path: /admin/reports
+  surface: manager
+  auth: required
+  roles:
+  - challenge_manager
+  - admin
+  page_doc: WOL-PAGE-022
+  indexing: noindex
+- route_id: R-MG-009
+  path: /admin/settings
+  surface: manager
+  auth: required
+  roles:
+  - challenge_manager
+  - admin
+  page_doc: WOL-PAGE-022
+  indexing: noindex
+- route_id: R-SP-001
+  path: /sponsor
+  surface: sponsor
+  auth: required
+  roles:
+  - sponsor_viewer
+  page_doc: WOL-PAGE-014
+  indexing: noindex
+- route_id: R-SP-002
+  path: /sponsor/reports/[challengeId]
+  surface: sponsor
+  auth: required
+  roles:
+  - sponsor_viewer
+  page_doc: WOL-PAGE-014
+  indexing: noindex
+- route_id: R-SP-003
+  path: /sponsor/showcases
+  surface: sponsor
+  auth: required
+  roles:
+  - sponsor_viewer
+  page_doc: WOL-PAGE-014
+  indexing: noindex
+- route_id: R-SP-004
+  path: /sponsor/pilots
+  surface: sponsor
+  auth: required
+  roles:
+  - sponsor_viewer
+  page_doc: WOL-PAGE-014
+  indexing: noindex

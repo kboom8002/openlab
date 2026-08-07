@@ -1,0 +1,16 @@
+batch: 13
+name: integrated-qa-final-repository
+status: complete
+created_at: '2026-08-01'
+inherits: [batch0, batch1, batch2, batch3, batch4, batch5, batch6, batch7, batch8, batch9, batch10, batch11, batch12]
+repository_files_before_final_metadata: 260
+automated_qa:
+  structured_parse: pass
+  unique_document_contract_ids: pass
+  internal_links: pass
+  evaluation_weights_25_25_50_0: pass
+  jdc_proposal_state: pass
+  sponsor_dedicated_read_model: pass
+  rls_contract_boundary: pass
+manual_qa: {antigravity_onboarding_trace: pass, open_decision_non_fabrication: pass, batch_inheritance: pass}
+outputs: {integrated_report: WOL-GOV-B13, superseded_final_zip: wellb-openlab-repo-docs-final-batch13.zip}

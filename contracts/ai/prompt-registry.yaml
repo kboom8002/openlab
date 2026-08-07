@@ -1,0 +1,36 @@
+version: 1
+prompts:
+- id: wol.idea-orchestrator@1.0.0
+  file: contracts/prompts/idea-orchestrator.v1.md
+  status: active
+  owner: ai-engineering
+- id: wol.problem-framing@1.0.0
+  file: contracts/prompts/problem-framing.v1.md
+  status: active
+  owner: ai-engineering
+- id: wol.idea-coach@1.0.0
+  file: contracts/prompts/idea-coach.v1.md
+  status: active
+  owner: ai-engineering
+- id: wol.feasibility@1.0.0
+  file: contracts/prompts/feasibility.v1.md
+  status: active
+  owner: ai-engineering
+- id: wol.impact@1.0.0
+  file: contracts/prompts/impact.v1.md
+  status: active
+  owner: ai-engineering
+- id: wol.experiment@1.0.0
+  file: contracts/prompts/experiment.v1.md
+  status: active
+  owner: ai-engineering
+- id: wol.preflight@1.0.0
+  file: contracts/prompts/preflight.v1.md
+  status: active
+  owner: ai-engineering
+- id: wol.evaluation@1.0.0
+  file: contracts/prompts/evaluation.v1.md
+  status: active
+  owner: ai-engineering
+freeze_evaluation_cycle: true
+change_gate: golden_set_regression

@@ -1,0 +1,26 @@
+node_modules/
+.next/
+coverage/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+supabase/.temp/
+
+# Build artifacts
+tsconfig.tsbuildinfo
+out/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+
+# Antigravity agent state
+.gemini/
+

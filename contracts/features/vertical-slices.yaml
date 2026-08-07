@@ -1,0 +1,12 @@
+contract_id: WOL-CONTRACT-FEAT-001
+version: 1.0.0
+status: approved
+source_doc: WOL-FEAT-001
+slices:
+  - {id: VS-01, status: ready, pages: [WOL-PAGE-004], ai: none}
+  - {id: VS-02, status: ready, pages: [WOL-PAGE-002, WOL-PAGE-003], ai: none}
+  - {id: VS-03, status: ready, pages: [WOL-PAGE-006, WOL-PAGE-018], ai: idea-studio, rls: owner_only_draft}
+  - {id: VS-04, status: ready, pages: [WOL-PAGE-007, WOL-PAGE-008], ai: [passport-synthesis, preflight], invariant: submitted_version_immutable}
+  - {id: VS-05, status: ready, pages: [WOL-PAGE-009, WOL-PAGE-010, WOL-PAGE-013], weights: {ai: 25, pairwise: 25, expert: 50, committee: 0}}
+  - {id: VS-06, status: blocked_by_decision, decision: D-UX09, sponsor_source: dedicated_read_model, jdc_status: proposal}
+

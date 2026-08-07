@@ -1,0 +1,102 @@
+contract_id: WOL-CONTRACT-DOM-002
+version: 1.0.0
+status: approved
+source_doc: WOL-DOM-003
+
+passport:
+  required_sections:
+    - identity
+    - problem
+    - people_context
+    - solution
+    - feasibility
+    - impact
+    - experiment
+    - provenance
+    - rights
+
+  fields:
+    identity:
+      required: [title, one_line_summary, track, category]
+      optional: [keywords, cover_visual]
+
+    problem:
+      required:
+        - target_user
+        - context
+        - observed_problem
+        - current_alternative
+        - consequence
+      optional:
+        - probable_causes
+        - frequency_or_scale
+        - problem_statement
+
+    people_context:
+      required: [primary_users, affected_stakeholders, operating_context]
+      optional:
+        - payers_or_decision_makers
+        - required_partners
+        - accessibility_conditions
+        - possible_excluded_groups
+
+    solution:
+      required: [core_solution, user_flow, expected_value]
+      optional:
+        - differentiator
+        - alternative_options_considered
+        - out_of_scope
+        - operating_owner
+
+    feasibility:
+      required:
+        - required_people
+        - required_resources
+        - cost_range
+        - critical_constraints
+        - critical_risks
+        - unknowns
+      optional: [technology, data_requirements, legal_or_policy_conditions, dependencies]
+
+    impact:
+      required:
+        - direct_beneficiaries
+        - expected_changes
+        - possible_negative_effects
+        - measurable_indicators
+      optional: [business_value, social_value, accessibility_considerations]
+
+    experiment:
+      required:
+        - key_assumption
+        - target_participants
+        - minimum_prototype
+        - test_method
+        - success_criteria
+        - duration
+        - required_partner
+        - risk_and_safeguard
+
+    rights:
+      required:
+        - visibility
+        - author_ownership_acknowledged
+        - evaluation_consent_version
+        - ai_processing_consent_version
+      optional:
+        - showcase_consent
+        - pilot_contact_consent
+        - research_analytics_consent
+
+  cost_range:
+    - under_1m_krw
+    - 1m_to_10m_krw
+    - 10m_to_50m_krw
+    - over_50m_krw
+    - unknown
+
+  invariants:
+    - ai_suggestion_requires_user_confirmation
+    - submitted_version_is_immutable
+    - every_confirmed_field_has_provenance
+    - facts_and_assumptions_are_distinct

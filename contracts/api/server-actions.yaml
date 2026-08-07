@@ -1,0 +1,16 @@
+contract_id: WOL-CONTRACT-API-002
+version: 1.0.0
+status: approved
+source_doc: WOL-API-002
+result_shape: discriminated_ok_boolean
+actions:
+  - {id: ACT-IDEA-001, name: createIdeaDraft, roles: [participant], idempotency: required}
+  - {id: ACT-IDEA-002, name: updateIdeaDraft, roles: [idea_owner], concurrency: expected_revision}
+  - {id: ACT-IDEA-003, name: applyAiSuggestion, roles: [idea_owner], requires: [pending_interrupt, explicit_user_decision, provenance]}
+  - {id: ACT-IDEA-004, name: submitIdea, roles: [idea_owner], idempotency: required, output: immutable_version_id}
+  - {id: ACT-IDEA-005, name: withdrawIdea, roles: [idea_owner], idempotency: required}
+  - {id: ACT-EVAL-001, name: submitPairwise, roles: [eligible_evaluator], immutable: true}
+  - {id: ACT-EVAL-002, name: submitExpertReview, roles: [assigned_expert], immutable: true}
+  - {id: ACT-MGR-001, name: transitionChallenge, roles: [challenge_manager, admin]}
+  - {id: ACT-MGR-002, name: decidePublication, roles: [challenge_manager, admin], requires: [participant_consent]}
+

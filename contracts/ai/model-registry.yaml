@@ -1,0 +1,41 @@
+version: 1
+model_keys:
+- key: coach.fast
+  provider: openai
+  provider_model: env:OPENAI_COACH_FAST_MODEL
+  capabilities:
+  - structured_output
+  - streaming
+  cost_class: low
+- key: coach.quality
+  provider: openai
+  provider_model: env:OPENAI_COACH_QUALITY_MODEL
+  capabilities:
+  - structured_output
+  - streaming
+  cost_class: medium
+- key: synthesis.quality
+  provider: openai
+  provider_model: env:OPENAI_SYNTHESIS_MODEL
+  capabilities:
+  - structured_output
+  cost_class: medium
+- key: preflight.standard
+  provider: openai
+  provider_model: env:OPENAI_PREFLIGHT_MODEL
+  capabilities:
+  - structured_output
+  cost_class: medium
+- key: evaluation.reference
+  provider: openai
+  provider_model: env:OPENAI_EVALUATION_MODEL
+  capabilities:
+  - structured_output
+  cost_class: high
+- key: moderation.default
+  provider: openai
+  provider_model: env:OPENAI_MODERATION_MODEL
+  capabilities:
+  - moderation
+  cost_class: low
+hardcode_provider_model_ids: false

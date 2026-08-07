@@ -1,0 +1,109 @@
+contract_id: WOL-CONTRACT-DOM-001
+version: 1.0.0
+status: approved
+source_docs:
+  - WOL-DOM-001
+  - WOL-DOM-004
+  - WOL-DOM-006
+
+enums:
+  user_role:
+    - anonymous
+    - participant
+    - evaluator
+    - expert
+    - challenge_manager
+    - sponsor_viewer
+    - admin
+    - service_worker
+
+  challenge_series_status:
+    - DRAFT
+    - PLANNED
+    - ACTIVE
+    - PAUSED
+    - COMPLETED
+    - ARCHIVED
+
+  monthly_challenge_status:
+    - DRAFT
+    - SCHEDULED
+    - OPEN
+    - CLOSED
+    - ELIGIBILITY_REVIEW
+    - EVALUATION
+    - SELECTION
+    - PILOTING
+    - COMPLETED
+    - CANCELLED
+    - ARCHIVED
+
+  idea_status:
+    - DRAFT
+    - READY_FOR_REVIEW
+    - PREFLIGHT_CHECKING
+    - PREFLIGHT_COMPLETE
+    - SUBMITTED
+    - ELIGIBILITY_REVIEW
+    - ELIGIBLE
+    - UNDER_EVALUATION
+    - PROMISING
+    - PILOT_READY
+    - IN_PILOT
+    - VALIDATED
+    - ADOPTED
+    - RETURNED_FOR_REVISION
+    - INELIGIBLE
+    - WITHDRAWN
+    - SAFETY_HOLD
+    - ARCHIVED
+
+  pilot_status:
+    - PLANNED
+    - READY
+    - IN_PROGRESS
+    - PAUSED
+    - COMPLETED
+    - VALIDATED
+    - NOT_VALIDATED
+    - CANCELLED
+    - ARCHIVED
+
+  visibility:
+    - public
+    - anonymous
+    - evaluators_only
+    - private
+
+  claim_type:
+    - fact
+    - experience
+    - assumption
+    - expected_impact
+
+  provenance_source:
+    - user_original
+    - user_edited
+    - ai_suggested
+    - external_source
+    - admin_edited
+
+  sponsor_relationship_status:
+    - proposal
+    - under_discussion
+    - agreement_pending
+    - active
+    - paused
+    - ended
+
+  evaluation_type:
+    - eligibility
+    - ai
+    - pairwise
+    - expert
+    - selection_gate
+
+  ai_confidence:
+    - high
+    - medium
+    - low

@@ -1,0 +1,12 @@
+contract_id: WOL-CONTRACT-OPS-001
+version: 1.0.0
+status: approved
+source_doc: WOL-OPS-001
+environments: [local, preview, staging, production]
+isolation: [database, storage, secrets, langgraph_checkpoint]
+deployment_platform: {vercel: candidate, decision: D-T06}
+database_platform: {supabase: approved, per_environment_project: true}
+production:
+  requires: [quality_gates_pass, migration_review, staging_smoke, rls_negative_tests, ai_regression_report, human_approval]
+  direct_agent_deploy: forbidden
+

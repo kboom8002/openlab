@@ -1,0 +1,41 @@
+schema_version: 1.0.0
+canonical_doc: WOL-UX-009
+privacy_rule: Do not include idea body, conversation text, PII, or expert comments
+  in analytics properties.
+events:
+  navigation:
+  - home_viewed
+  - challenge_list_viewed
+  - challenge_detail_viewed
+  - participant_dashboard_viewed
+  idea:
+  - idea_studio_viewed
+  - coach_message_sent
+  - ai_suggestion_accepted
+  - ai_suggestion_edited
+  - ai_suggestion_rejected
+  - studio_stage_changed
+  - draft_save_failed
+  - idea_passport_viewed
+  - preflight_started
+  - preflight_completed
+  - visibility_selected
+  - idea_submitted
+  evaluation:
+  - pairwise_viewed
+  - pairwise_choice_submitted
+  - expert_review_started
+  - expert_conflict_declared
+  - expert_review_submitted
+  operations:
+  - admin_overview_viewed
+  - selection_board_viewed
+  - selection_decision_recorded
+  - pilot_status_changed
+  sponsor:
+  - sponsor_dashboard_viewed
+  - sponsor_report_opened
+  - sponsor_report_exported
+  profile:
+  - profile_updated
+  - accessibility_preference_changed

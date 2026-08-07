@@ -1,0 +1,13 @@
+contract_id: WOL-CONTRACT-API-004
+version: 1.0.0
+status: approved
+source_doc: WOL-API-004
+request_id: required
+idempotency:
+  key_scope: [actor_id, operation, key]
+  hash_mismatch_error: CONFLICT_DUPLICATE_REQUEST
+pagination: {type: opaque_cursor, default_limit: 20, max_limit: 100, order: [created_at, id]}
+logging:
+  allow: [request_id, actor_pseudonymous_id, operation_id, error_code, duration_ms]
+  deny: [authorization_header, cookie, request_body, ai_raw_payload, service_role_key]
+

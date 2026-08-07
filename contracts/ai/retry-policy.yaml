@@ -1,0 +1,23 @@
+version: 1
+max_provider_calls_per_action: 2
+classes:
+  input:
+    retry: 0
+  auth:
+    retry: 0
+  rate_limit:
+    retry: 1
+    backoff: bounded_exponential
+  transient:
+    retry: 1
+    backoff: bounded_exponential
+  timeout:
+    retry: 1
+  schema:
+    repair: 1
+  refusal:
+    retry: 0
+  checkpoint:
+    retry: 0
+    canonical_write: false
+cross_provider_fallback: false

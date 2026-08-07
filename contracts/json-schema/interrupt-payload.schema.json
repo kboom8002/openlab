@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wellbopenlab.local/schemas/interrupt-payload@1",
+  "title": "InterruptPayload",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "interruptId",
+    "runId",
+    "type",
+    "summary",
+    "allowedDecisions",
+    "nonce"
+  ],
+  "properties": {
+    "interruptId": {
+      "type": "string"
+    },
+    "runId": {
+      "type": "string"
+    },
+    "type": {
+      "enum": [
+        "suggestion_review",
+        "inferred_fact_confirmation",
+        "safety_review",
+        "evaluation_insufficient",
+        "provider_fallback"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "maxLength": 1200
+    },
+    "allowedDecisions": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "accept",
+          "edit",
+          "reject",
+          "confirm",
+          "correct",
+          "revise",
+          "submit_for_review",
+          "cancel",
+          "human_review",
+          "request_revision",
+          "retry",
+          "direct_entry"
+        ]
+      },
+      "minItems": 1
+    },
+    "proposedChange": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "expiresAt": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "nonce": {
+      "type": "string",
+      "minLength": 16
+    }
+  }
+}

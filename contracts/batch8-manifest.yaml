@@ -1,0 +1,10 @@
+batch: 8
+name: feature-vertical-slice-contracts
+status: complete
+created_at: '2026-08-01'
+inherits: [batch0, batch1, batch2, batch3, batch4, batch5, batch6, batch7]
+added:
+  docs: [WOL-FEAT-001, WOL-FEAT-003, WOL-FEAT-004, WOL-FEAT-005, WOL-FEAT-006]
+  contracts: [WOL-CONTRACT-FEAT-001]
+qa: {page_links: pass, evaluation_weights: pass, rls_boundary: pass, open_decision_preserved: pass}
+next_batch: {id: 9, name: security-rights-governance}

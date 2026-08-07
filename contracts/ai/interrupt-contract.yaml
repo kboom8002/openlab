@@ -1,0 +1,24 @@
+version: 1
+types:
+  suggestion_review:
+  - accept
+  - edit
+  - reject
+  inferred_fact_confirmation:
+  - confirm
+  - correct
+  - reject
+  safety_review:
+  - revise
+  - submit_for_review
+  - cancel
+  evaluation_insufficient:
+  - human_review
+  - request_revision
+  provider_fallback:
+  - retry
+  - direct_entry
+idempotency_key:
+- interruptId
+- nonce
+canonical_write_requires_user_decision: true

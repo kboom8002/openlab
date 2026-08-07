@@ -1,0 +1,12 @@
+batch: 12
+name: antigravity-skills-workflow-package
+status: complete
+created_at: '2026-08-01'
+inherits: [batch0, batch1, batch2, batch3, batch4, batch5, batch6, batch7, batch8, batch9, batch10, batch11]
+added:
+  docs: [WOL-AGSK-001]
+  skills: [context-bootstrap, vertical-slice-plan, ai-contract-change]
+  workflows: [contract-qa]
+  templates: [traceability-matrix]
+qa: {permission_escalation: none, stop_rules_inherited: pass, artifact_traceability: pass}
+next_batch: {id: 13, name: integrated-qa-final-package}

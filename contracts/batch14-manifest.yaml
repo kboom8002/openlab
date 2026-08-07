@@ -1,0 +1,23 @@
+batch: 14
+name: production-executable-scaffold
+status: complete
+created_at: '2026-08-01'
+inherits: [batch0, batch1, batch2, batch3, batch4, batch5, batch6, batch7, batch8, batch9, batch10, batch11, batch12, batch13]
+added:
+  runtime: [nextjs_app_router, react, typescript_strict, supabase_ssr]
+  application: [public_home, health_liveness, auth_refresh_proxy, idea_draft_actions]
+  database: [core_migration, rls_policies, draft_rpc, pgtap_contract]
+  delivery: [ci, codeql, dependabot, pull_request_gate]
+  operations: [WOL-OPS-003, WOL-CONTRACT-OPS-003]
+verification:
+  contract_qa: pass
+  peer_dependencies: pass
+  eslint: pass
+  strict_typecheck: pass
+  unit_test: pass
+  production_build: pass
+  dependency_audit_high: pass
+  clean_db_reset: not_run_supabase_cli_unavailable
+  pgtap_rls: not_run_supabase_cli_unavailable
+production_state: NOT_READY
+reason: db_runtime_tests_staging_evidence_and_human_gates_pending

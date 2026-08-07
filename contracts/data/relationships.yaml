@@ -1,0 +1,43 @@
+contract_id: WOL-CONTRACT-DATA-002
+version: 1.0.0
+status: approved
+source_doc: WOL-DATA-003
+invariants:
+- id: REL-001
+  rule: profiles.id equals auth.users.id
+  enforcement: primary_key_foreign_key
+- id: REL-002
+  rule: multiple draft ideas per participant per challenge are allowed
+  enforcement: no_unique_challenge_author
+- id: REL-003
+  rule: submitted version is immutable
+  enforcement: rls_and_trigger_or_function_guard
+- id: REL-004
+  rule: evaluation references exact submitted idea_version_id
+  enforcement: foreign_key_and_submit_function
+- id: REL-005
+  rule: sponsor raw idea access is forbidden
+  enforcement: no_direct_policy_read_model_only
+- id: REL-006
+  rule: one submitted version per idea at a time
+  enforcement: partial_unique_index
+- id: REL-007
+  rule: final submission count follows challenge configuration
+  enforcement: serialized_transaction_function
+- id: REL-008
+  rule: showcase requires active permission
+  enforcement: foreign_key_and_snapshot_builder
+delete_defaults:
+  domain_records: archive_or_restrict
+  versioned_legal_records: restrict
+  user_generated_files: workflow_delete
+  test_fixtures: reset_only
+required_indexes:
+- all_foreign_keys_used_by_rls
+- owner_id
+- organization_id
+- challenge_id
+- idea_id
+- idea_version_id
+- status
+- expires_at

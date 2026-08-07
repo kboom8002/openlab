@@ -1,0 +1,19 @@
+version: 1
+controls:
+- minimal_context
+- rolling_summary
+- model_profile_routing
+- output_cap
+- idempotency
+- quota
+- deferred_evaluation
+- immutable_context_cache
+metrics:
+- input_tokens
+- output_tokens
+- cached_tokens
+- latency_ms
+- schema_repair_rate
+- retry_rate
+- cost_per_submitted_idea
+quota_behavior: direct_entry_without_data_loss

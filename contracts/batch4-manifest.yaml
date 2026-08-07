@@ -1,0 +1,28 @@
+batch: 4
+name: system-architecture-and-adrs
+status: complete
+created_at: '2026-07-31'
+inherits:
+- batch0
+- batch1
+- batch2
+- batch3
+outputs:
+  architecture_core_docs: 12
+  adr_docs: 11
+  architecture_contracts: 7
+  governance_report: 1
+canonical_decisions:
+  router: nextjs_app_router
+  server_runtime: nodejs_default
+  repository: single_repository_single_workspace
+  system_of_record: supabase_postgresql
+  ui_primitive: shadcn_base_ui
+  ai_provider: provider_abstraction
+  graph_persistence: durable_required_implementation_deferred
+  long_tasks: background_job_boundary
+  sponsor_access: dedicated_read_model
+  audit_and_provenance: separate_models
+next_batch:
+  id: 5
+  name: supabase-data-rls-storage

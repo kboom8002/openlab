@@ -1,0 +1,35 @@
+batch: 6
+name: langgraph-prompts-provider-structured-output-ai-evals
+status: complete
+created_at: '2026-07-31'
+inherits:
+- batch0
+- batch1
+- batch2
+- batch3
+- batch4
+- batch5
+outputs:
+  ai_core_docs: 18
+  prompt_sources: 8
+  ai_contracts: 16
+  json_schemas: 5
+  governance_report: 1
+canonical_decisions:
+  graphs:
+  - idea-studio
+  - passport-synthesis
+  - preflight
+  - evaluation
+  checkpoint: postgres_durable_saver_isolated_schema
+  provider_primary: openai_responses_adapter
+  cross_provider_fallback: disabled
+  model_selection: application_model_key_registry
+  structured_output: json_schema_repair_once
+  canonical_ai_write: human_decision_required
+  hidden_reasoning_storage: false
+  pii_provider_default: deny
+  ai_change_gate: regression_evaluation
+next_batch:
+  id: 7
+  name: server-actions-route-handlers-api-errors

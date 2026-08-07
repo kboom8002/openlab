@@ -1,0 +1,10 @@
+contract_id: WOL-CONTRACT-SEC-001
+version: 1.0.0
+status: approved
+source_docs: [WOL-SEC-001, WOL-SEC-003]
+defaults: {access: deny, operator_draft_exception: disabled_pending_D-S02, jdc_status: proposal}
+secrets: {client_exposure: forbidden, log_exposure: forbidden, rotation: required}
+uploads: {validate: [bucket, owner, size, mime, magic_bytes], public_by_default: false}
+sponsor: {source: dedicated_read_model, small_cell_suppression: required, raw_draft: denied}
+ai_provider: {pii_default: deny, field_allowlist_legal_status: pending_legal_review}
+

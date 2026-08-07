@@ -1,0 +1,31 @@
+contract_id: WOL-CONTRACT-DOM-004
+version: 1.0.0
+status: approved
+source_doc: WOL-DOM-002
+
+defaults:
+  challenge_type: monthly_challenge
+  max_final_submissions_per_participant: 1
+  allowed_submission_limit_range: [1, 3]
+  multiple_drafts_allowed: true
+  team_submission_enabled: false
+  visibility_options:
+    - public
+    - anonymous
+    - evaluators_only
+    - private
+  evaluation:
+    eligibility_required: true
+    ai_enabled: true
+    pairwise_enabled: false
+    expert_required: true
+    selection_gate_required: true
+  pilot:
+    proof_day_enabled: true
+    target_duration_days: 30
+
+constraints:
+  - ai_only_final_selection_is_forbidden
+  - sponsor_private_content_access_is_forbidden_by_default
+  - submitted_versions_are_immutable
+  - schedule_values_are_configuration_not_code_constants

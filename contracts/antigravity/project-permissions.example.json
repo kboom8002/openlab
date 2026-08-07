@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "command(git status)",
+      "command(git diff)",
+      "command(git log)",
+      "command(git show)",
+      "command(pnpm (lint|typecheck|test|build|test:rls|test:e2e|test:a11y|eval:ai))",
+      "command(supabase status)",
+      "read_file(docs/)",
+      "read_file(contracts/)",
+      "read_file(.agents/)"
+    ],
+    "ask": [
+      "command(pnpm (add|install|remove|update|dlx))",
+      "command(supabase (db|migration|seed|functions|projects|link).*)",
+      "command(git (add|commit|push|pull|merge|rebase|tag|checkout|switch))",
+      "read_url(*)",
+      "execute_url(*)",
+      "mcp(*)",
+      "unsandboxed(*)"
+    ],
+    "deny": [
+      "command(rm -rf)",
+      "command(git reset --hard)",
+      "command(git push (--force|--force-with-lease).*)",
+      "command(supabase db reset --linked)",
+      "command(dropdb .*)",
+      "write_file(.git/)",
+      "read_file(.env)",
+      "read_file(.env.local)",
+      "read_file(.env.production)",
+      "read_file(.env.development)",
+      "read_file(.env.test)",
+      "read_file(~/.ssh)",
+      "read_file(~/.aws)",
+      "read_file(~/.config/gcloud)"
+    ]
+  }
+}

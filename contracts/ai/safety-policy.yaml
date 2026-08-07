@@ -1,0 +1,23 @@
+version: 1
+layers:
+- ui_warning
+- server_validation
+- pii_redaction
+- moderation
+- node_instruction
+- output_validation
+- human_review
+provider_pii_default: deny
+forbidden_fields:
+- email
+- phone
+- detailed_address
+- government_id
+- secrets
+- signed_url
+- other_user_content
+prompt_injection_defense:
+- instruction_data_separation
+- tool_allowlist
+- argument_schema
+automatic_rejection_from_ai_score: false

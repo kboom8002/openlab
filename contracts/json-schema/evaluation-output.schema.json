@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wellbopenlab.local/schemas/evaluation-output@1",
+  "title": "EvaluationOutput",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "rubricVersion",
+    "totalScore",
+    "confidence",
+    "criteria",
+    "strengths",
+    "criticalGap",
+    "assumptionsToValidate",
+    "humanReviewRequired"
+  ],
+  "properties": {
+    "rubricVersion": {
+      "type": "string"
+    },
+    "totalScore": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "confidence": {
+      "enum": [
+        "high",
+        "medium",
+        "low"
+      ]
+    },
+    "criteria": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "criterionId",
+          "score",
+          "maxScore",
+          "rationale",
+          "evidencePaths",
+          "insufficientInformation"
+        ],
+        "properties": {
+          "criterionId": {
+            "type": "string"
+          },
+          "score": {
+            "type": "number",
+            "minimum": 0
+          },
+          "maxScore": {
+            "type": "number",
+            "minimum": 1
+          },
+          "rationale": {
+            "type": "string",
+            "maxLength": 1200
+          },
+          "evidencePaths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "insufficientInformation": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "strengths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 5
+    },
+    "criticalGap": {
+      "type": "string",
+      "maxLength": 800
+    },
+    "assumptionsToValidate": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 8
+    },
+    "safetyFlags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "humanReviewRequired": {
+      "type": "boolean"
+    }
+  }
+}

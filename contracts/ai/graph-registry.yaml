@@ -1,0 +1,56 @@
+version: 1
+graphs:
+- key: idea-studio
+  version: 1.0.0
+  entry: load_context
+  nodes:
+  - load_context
+  - safety_input_check
+  - stage_router
+  - intake
+  - problem_framing
+  - people_context
+  - solution_coach
+  - feasibility_review
+  - impact_review
+  - experiment_design
+  - schema_validate
+  - pending_suggestion_interrupt
+  - persist_run
+  checkpoint: true
+  interactive: true
+- key: passport-synthesis
+  version: 1.0.0
+  nodes:
+  - load_confirmed_fields
+  - detect_gaps
+  - synthesize_sections
+  - validate_claim_types
+  - schema_validate
+  - persist_version_candidate
+  checkpoint: true
+  interactive: false
+- key: preflight
+  version: 1.0.0
+  nodes:
+  - completeness
+  - logic_consistency
+  - claims_and_evidence
+  - privacy_and_rights
+  - safety_review
+  - readiness_summary
+  checkpoint: true
+  interactive: false
+- key: evaluation
+  version: 1.0.0
+  nodes:
+  - submitted_version_guard
+  - anonymized_input_builder
+  - rubric_scoring
+  - evidence_sufficiency
+  - confidence_calibration
+  - bias_and_safety_guard
+  - human_review_gate
+  - persist_reference_evaluation
+  checkpoint: true
+  interactive: false

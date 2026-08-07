@@ -1,0 +1,91 @@
+contract_id: WOL-CONTRACT-DATA-005
+version: 1.0.0
+status: approved
+source_doc: WOL-DATA-006
+buckets:
+- id: public-assets
+  public: true
+  size_limit: 10MiB
+  mime:
+  - image/png
+  - image/jpeg
+  - image/webp
+  - image/svg+xml
+  write: approved_manager_only
+- id: avatars
+  public: false
+  size_limit: 5MiB
+  mime:
+  - image/png
+  - image/jpeg
+  - image/webp
+  write: owner
+- id: challenge-assets
+  public: false
+  size_limit: 25MiB
+  mime:
+  - application/pdf
+  - image/png
+  - image/jpeg
+  - image/webp
+  write: challenge_manager
+- id: idea-attachments
+  public: false
+  size_limit: 25MiB
+  mime:
+  - application/pdf
+  - image/png
+  - image/jpeg
+  - image/webp
+  - text/plain
+  write: idea_owner
+- id: idea-visuals
+  public: false
+  size_limit: 10MiB
+  mime:
+  - image/png
+  - image/webp
+  - image/svg+xml
+  - application/pdf
+  write: owner_or_system
+- id: evaluation-attachments
+  public: false
+  size_limit: 25MiB
+  mime:
+  - application/pdf
+  - image/png
+  - image/jpeg
+  write: assigned_evaluator
+- id: pilot-evidence
+  public: false
+  size_limit: 100MiB
+  mime:
+  - application/pdf
+  - image/png
+  - image/jpeg
+  - image/webp
+  - video/mp4
+  - text/csv
+  write: pilot_participant
+- id: exports
+  public: false
+  size_limit: 100MiB
+  mime:
+  - application/pdf
+  - text/csv
+  - application/zip
+  write: system_job
+- id: sponsor-reports
+  public: false
+  size_limit: 100MiB
+  mime:
+  - application/pdf
+  - text/csv
+  - application/zip
+  write: report_job
+signed_url_minutes:
+  default: 10
+  sponsor_report_max: 60
+  export_max: 60
+scan_required_for_user_uploads: true
+direct_sponsor_idea_bucket_access: false

@@ -1,0 +1,33 @@
+version: 1
+updated_at: '2026-07-31'
+adrs:
+- id: ADR-001
+  doc_id: WOL-ADR-001
+  status: accepted
+- id: ADR-002
+  doc_id: WOL-ADR-002
+  status: accepted
+- id: ADR-003
+  doc_id: WOL-ADR-003
+  status: accepted
+- id: ADR-004
+  doc_id: WOL-ADR-004
+  status: accepted
+- id: ADR-005
+  doc_id: WOL-ADR-005
+  status: accepted
+- id: ADR-006
+  doc_id: WOL-ADR-006
+  status: accepted_deferred
+- id: ADR-007
+  doc_id: WOL-ADR-007
+  status: accepted
+- id: ADR-008
+  doc_id: WOL-ADR-008
+  status: accepted
+- id: ADR-009
+  doc_id: WOL-ADR-009
+  status: accepted
+- id: ADR-010
+  doc_id: WOL-ADR-010
+  status: accepted

@@ -1,0 +1,11 @@
+contract_id: WOL-CONTRACT-OPS-003
+version: 1.0.0
+status: approved
+source_doc: WOL-OPS-003
+states: [NOT_READY, READY_FOR_STAGING, APPROVED_FOR_PRODUCTION, DEPLOYED, ROLLED_BACK]
+automated_required: [frozen_install, contract_qa, lint, strict_typecheck, unit_test, production_build, clean_db_reset, rls_tests, security_scan]
+human_required: [deployment_platform, privacy_legal_approval, secret_ownership, restore_drill, incident_ownership, release_approval]
+agent_can_grant_production_approval: false
+jdc_status_until_official_agreement: proposal
+public_and_sponsor_features_default: disabled
+

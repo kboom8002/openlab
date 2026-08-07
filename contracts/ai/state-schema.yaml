@@ -1,0 +1,35 @@
+version: 1
+required:
+- runId
+- threadId
+- graphKey
+- graphVersion
+- ideaId
+- challengeId
+- actorId
+- locale
+- messages
+- passportSnapshot
+- confirmedFields
+- inferredFields
+- missingFields
+- safetyFlags
+- modelKey
+- promptVersions
+- schemaVersions
+- usage
+- errors
+reducers:
+  messages: append
+  confirmedFields: set_union
+  inferredFields: set_union
+  missingFields: replace
+  safetyFlags: append_deduplicate
+  usage: numeric_accumulate
+  pendingSuggestion: replace
+forbidden:
+- api_keys
+- authorization_headers
+- signed_urls
+- other_user_pii
+- hidden_chain_of_thought

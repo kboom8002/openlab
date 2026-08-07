@@ -1,0 +1,36 @@
+contract_id: WOL-CONTRACT-DATA-003
+version: 1.0.0
+status: approved
+source_doc: WOL-DATA-004
+postgres_request_roles:
+- anon
+- authenticated
+- service_role
+platform_roles:
+- participant
+- evaluator
+- expert
+- admin
+- service_worker
+organization_roles:
+- member
+- challenge_manager
+- sponsor_viewer
+- pilot_partner
+- organization_admin
+claims_policy:
+  raw_user_meta_data_authorization: false
+  raw_app_meta_data_can_cache_coarse_role: true
+  database_membership_is_canonical: true
+service_role:
+  browser_allowed: false
+  client_component_allowed: false
+  server_worker_only: true
+  audit_required_for_sensitive_access: true
+helper_functions:
+- has_platform_role
+- is_org_member
+- manages_challenge
+- owns_idea
+- is_assigned_evaluator
+- can_view_sponsor_snapshot

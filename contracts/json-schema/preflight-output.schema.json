@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wellbopenlab.local/schemas/preflight-output@1",
+  "title": "PreflightOutput",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "readiness",
+    "checks",
+    "blockingSafetyReview",
+    "summary"
+  ],
+  "properties": {
+    "readiness": {
+      "enum": [
+        "ready",
+        "needs_review",
+        "incomplete",
+        "safety_review"
+      ]
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "code",
+          "status",
+          "message",
+          "fieldPaths"
+        ],
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "pass",
+              "warning",
+              "fail",
+              "not_applicable"
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "fieldPaths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "blockingSafetyReview": {
+      "type": "boolean"
+    },
+    "summary": {
+      "type": "string",
+      "maxLength": 1200
+    }
+  }
+}

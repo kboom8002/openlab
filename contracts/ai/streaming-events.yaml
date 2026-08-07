@@ -1,0 +1,21 @@
+version: 1
+transport: web_stream_or_sse
+events:
+- run.started
+- node.started
+- assistant.delta
+- suggestion.preview
+- node.completed
+- interrupt.requested
+- run.completed
+- run.failed
+- heartbeat
+required_envelope:
+- eventId
+- runId
+- sequence
+- type
+- timestamp
+- payload
+hidden_reasoning_streamed: false
+reconnect: status_and_final_output_lookup

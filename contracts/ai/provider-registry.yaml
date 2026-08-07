@@ -1,0 +1,11 @@
+version: 1
+providers:
+- key: openai
+  adapter: OpenAIResponsesProvider
+  status: primary
+  server_only: true
+- key: fixture
+  adapter: DeterministicFixtureProvider
+  status: test_only
+  server_only: true
+cross_provider_fallback: disabled

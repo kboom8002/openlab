@@ -1,0 +1,42 @@
+contract_id: WOL-CONTRACT-DOM-005
+version: 1.0.0
+status: approved
+source_docs:
+  - WOL-DOM-007
+  - WOL-DOM-008
+
+sponsor_viewer:
+  allowed_by_default:
+    - public_challenge_information
+    - aggregate_funnel_metrics
+    - aggregate_category_metrics
+    - public_ideas
+    - consented_showcase_cases
+    - approved_monthly_reports
+    - aggregate_pilot_status
+
+  denied_by_default:
+    - participant_drafts
+    - private_idea_content
+    - evaluators_only_idea_content
+    - ai_conversation_raw_text
+    - agent_run_raw_payloads
+    - participant_personal_information
+    - evaluator_identity
+    - conflict_of_interest_details
+    - internal_safety_investigation
+
+relationship_defaults:
+  jdc_status: proposal
+  official_logo_allowed: false
+  sponsored_by_copy_allowed: false
+  final_selection_override: false
+  idea_ownership_transfer: false
+
+exceptions:
+  requirements:
+    - documented_purpose
+    - minimum_scope
+    - approved_legal_basis_or_user_consent
+    - access_expiration
+    - audit_log

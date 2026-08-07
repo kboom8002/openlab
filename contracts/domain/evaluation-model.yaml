@@ -1,0 +1,56 @@
+contract_id: WOL-CONTRACT-DOM-003
+version: 1.0.0
+status: approved
+source_doc: WOL-DOM-005
+
+reference_score:
+  ai_evaluation_weight: 25
+  pairwise_field_weight: 25
+  expert_evaluation_weight: 50
+  committee_weight: 0
+  total: 100
+  insufficient_pairwise_policy: do_not_auto_redistribute
+
+selection_gate:
+  type: qualitative
+  can_review:
+    - eligibility_error
+    - conflict_of_interest
+    - score_variance
+    - insufficient_information
+    - safety_and_rights
+    - pilot_feasibility
+    - duplicate_portfolio
+  cannot_do:
+    - hidden_bonus_points
+    - sponsor_only_override
+    - ai_only_rejection
+    - identity_based_selection
+
+ai_rubric:
+  problem_importance: 15
+  user_understanding: 15
+  solution_fit: 20
+  differentiation: 10
+  feasibility: 15
+  experimentability: 10
+  social_value_inclusion: 10
+  clarity_evidence: 5
+  total: 100
+
+expert_rubric:
+  problem_reality: 15
+  user_value: 15
+  solution_fit: 20
+  feasibility: 20
+  pilotability: 15
+  scalability: 5
+  social_value_safety: 10
+  total: 100
+
+invariants:
+  - submitted_version_only
+  - ai_is_not_final_decider
+  - low_confidence_requires_review_not_penalty
+  - score_requires_rationale
+  - evaluator_conflict_is_recorded

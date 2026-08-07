@@ -1,0 +1,17 @@
+batch: 1
+name: Antigravity Bootstrap
+status: complete
+generated_at: '2026-07-31T18:57:00+09:00'
+base_batch: 0
+counts:
+  rules: 8
+  workflows: 8
+  artifact_templates: 7
+  permission_examples: 1
+  task_card_templates: 1
+entrypoints:
+- AGENTS.md
+- GEMINI.md
+- docs/INDEX.md
+- .agents/README.md
+next_batch: 2

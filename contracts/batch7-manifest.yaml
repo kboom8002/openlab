@@ -1,0 +1,14 @@
+batch: 7
+name: api-server-contract
+status: complete
+created_at: '2026-08-01'
+inherits: [batch0, batch1, batch2, batch3, batch4, batch5, batch6]
+added:
+  docs: [WOL-API-001, WOL-API-002, WOL-API-003, WOL-API-004]
+  contracts: [WOL-CONTRACT-API-001, WOL-CONTRACT-API-002, WOL-CONTRACT-API-003, WOL-CONTRACT-API-004]
+decisions:
+  server_action: authenticated_ui_mutation
+  route_handler: streaming_webhook_export_health
+  job_runner: pending_decision
+qa: {yaml_json_parse: pass, canonical_enum_reuse: pass, sponsor_boundary: pass}
+next_batch: {id: 8, name: feature-vertical-slice-contracts}

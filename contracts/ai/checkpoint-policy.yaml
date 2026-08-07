@@ -1,0 +1,14 @@
+version: 1
+production: postgres_durable_saver
+schema: langgraph_checkpoint
+thread_patterns:
+  studio: studio:{environment}:{idea_id}:{actor_id}:{graph_generation}
+  evaluation: eval:{environment}:{idea_version_id}:{evaluation_run_id}
+checkpoint_at:
+- input
+- each_superstep
+- before_interrupt
+- after_resume
+- validated_output
+client_exposure: opaque_run_token_only
+retention: configuration_pending_legal_review

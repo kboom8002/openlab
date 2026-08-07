@@ -1,0 +1,31 @@
+version: 1
+states:
+- queued
+- running
+- succeeded
+- retryable_failed
+- terminal_failed
+- cancelled
+types:
+- id: ai.coach.run
+  mode: sync_preferred
+  idempotent: true
+- id: ai.evaluation.run
+  mode: async_required
+  idempotent: true
+- id: report.monthly.generate
+  mode: async_required
+  idempotent: true
+- id: export.idea.generate
+  mode: async_required
+  idempotent: true
+- id: notification.dispatch
+  mode: async_required
+  idempotent: true
+- id: storage.attachment.scan
+  mode: async_required
+  idempotent: true
+payload_policy:
+  store_object_ids: true
+  store_secrets: false
+  store_full_idea_snapshot: false

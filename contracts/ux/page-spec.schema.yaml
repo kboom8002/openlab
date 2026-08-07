@@ -1,0 +1,35 @@
+schema_version: 1.0.0
+required_fields:
+- route_id
+- path
+- surface
+- auth
+- roles
+- indexing
+- page_doc
+- components
+- data_dependencies
+- actions
+- states
+- acceptance_tests
+surface_enum:
+- public
+- auth
+- participant
+- expert
+- manager
+- sponsor
+auth_enum:
+- none
+- mixed
+- callback
+- required
+indexing_enum:
+- index
+- index_when_published
+- noindex
+state_minimum:
+- loading
+- empty
+- error
+- permission_denied

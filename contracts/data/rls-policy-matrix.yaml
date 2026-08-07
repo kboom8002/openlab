@@ -1,0 +1,122 @@
+contract_id: WOL-CONTRACT-DATA-004
+version: 1.0.0
+status: approved
+source_doc: WOL-DATA-005
+global_rules:
+  all_public_tables_rls: true
+  explicit_to_role: true
+  auth_uid_wrapped_select: true
+  server_object_authorization_also_required: true
+policies:
+- resource: profiles
+  select:
+  - self
+  insert:
+  - provisioning_service
+  update:
+  - self
+  delete:
+  - account_deletion_workflow
+- resource: monthly_challenges
+  select:
+  - anon_if_published
+  - authenticated_if_published
+  - manager_own_org
+  insert:
+  - manager_own_org
+  update:
+  - manager_own_org
+  delete:
+  - none_archive_only
+- resource: ideas
+  select:
+  - owner
+  - assigned_evaluator_submitted
+  - manager_managed_challenge
+  - anon_public_submitted_projection
+  insert:
+  - authenticated_owner
+  update:
+  - owner_draft
+  - manager_status_transition_via_function
+  delete:
+  - none_workflow_only
+- resource: idea_versions
+  select:
+  - parent_permission
+  insert:
+  - owner_draft_flow
+  update:
+  - non_submitted_owner_via_function
+  delete:
+  - non_submitted_cleanup_only
+- resource: conversation_messages
+  select:
+  - owner
+  - trusted_safety_internal
+  insert:
+  - owner_or_ai_service
+  update:
+  - none
+  delete:
+  - retention_workflow
+- resource: agent_runs
+  select:
+  - owner_summary
+  - trusted_internal_raw
+  insert:
+  - ai_service
+  update:
+  - job_status_service
+  delete:
+  - retention_workflow
+- resource: evaluation_assignments
+  select:
+  - assigned_evaluator
+  - manager
+  insert:
+  - manager
+  update:
+  - assigned_conflict_status
+  - manager
+  delete:
+  - manager_before_start
+- resource: evaluations
+  select:
+  - evaluator_own
+  - manager
+  - participant_released_projection
+  insert:
+  - assigned_evaluator_or_ai_service
+  update:
+  - draft_evaluator
+  delete:
+  - none
+- resource: sponsor_report_snapshots
+  select:
+  - active_sponsor_member_same_org
+  - program_manager
+  insert:
+  - report_job
+  update:
+  - manager_before_publish
+  delete:
+  - none_archive_only
+- resource: audit_events
+  select:
+  - admin_auditor
+  insert:
+  - trusted_service
+  update:
+  - none
+  delete:
+  - retention_admin_workflow
+mandatory_deny_tests:
+- cross_user_draft_read
+- unassigned_evaluator_read
+- sponsor_raw_idea_read
+- sponsor_agent_run_read
+- cross_org_manager_write
+- submitted_version_update
+- audit_client_read
+- revoked_showcase_new_snapshot

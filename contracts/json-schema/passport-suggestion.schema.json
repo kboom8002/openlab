@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wellbopenlab.local/schemas/passport-suggestion@1",
+  "title": "PassportSuggestion",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "targetField",
+    "proposedValue",
+    "source",
+    "confidence",
+    "requiresConfirmation"
+  ],
+  "properties": {
+    "targetField": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9_.]+$"
+    },
+    "proposedValue": {},
+    "source": {
+      "enum": [
+        "user",
+        "inference",
+        "combined"
+      ]
+    },
+    "confidence": {
+      "enum": [
+        "high",
+        "medium",
+        "low"
+      ]
+    },
+    "requiresConfirmation": {
+      "type": "boolean"
+    },
+    "evidenceRefs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 20
+    }
+  }
+}
