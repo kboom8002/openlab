@@ -9,6 +9,25 @@ const AUTH_REQUIRED_PREFIXES = [
 const ANONYMOUS_ONLY_PATHS = ["/sign-in"];
 
 export async function proxy(request: NextRequest) {
+  const hostname = request.headers.get("host") || "";
+  const path = request.nextUrl.pathname;
+
+  // 0. Route wellbcompany.ai / www.wellbcompany.ai directly to /company (and sub-paths)
+  if (hostname.includes("wellbcompany.ai")) {
+    if (path === "/") {
+      return NextResponse.rewrite(new URL("/company", request.url));
+    }
+    if (
+      !path.startsWith("/company") &&
+      !path.startsWith("/_next") &&
+      !path.startsWith("/api") &&
+      !path.startsWith("/images") &&
+      !path.includes(".")
+    ) {
+      return NextResponse.rewrite(new URL(`/company${path}`, request.url));
+    }
+  }
+
   let response = NextResponse.next({ request });
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
@@ -29,7 +48,6 @@ export async function proxy(request: NextRequest) {
   });
 
   const { data: { user } } = await supabase.auth.getUser();
-  const path = request.nextUrl.pathname;
 
   // 1. Guard authenticated-only routes
   const requiresAuth = AUTH_REQUIRED_PREFIXES.some(prefix => path === prefix || path.startsWith(`${prefix}/`));

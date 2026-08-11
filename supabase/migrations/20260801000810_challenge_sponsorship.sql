@@ -60,7 +60,6 @@ create policy series_manager_all on public.challenge_series for all
 create policy sponsorship_org_select on public.sponsorships for select
   using (private.is_org_member(organization_id));
 create policy sponsorship_manager_write on public.sponsorships for insert
-  using (private.is_org_member(organization_id))
   with check (private.is_org_member(organization_id));
 create policy sponsorship_manager_update on public.sponsorships for update
   using (private.is_org_member(organization_id))
