@@ -7,10 +7,10 @@ import { ArrowRight, Sparkles, Globe, Cpu, Users, Layers, Building2, ShieldCheck
 export const metadata: Metadata = {
   metadataBase: new URL("https://wellbcompany.ai"),
   title: { default: "웰비컴퍼니", template: "%s | 웰비컴퍼니" },
-  description: "제주의 자산을 AI로 전환하고, 더 넓은 기회와 연결합니다",
+  description: "(주)웰비컴퍼니 — 제주의 자산을 AI로 전환하고, 더 넓은 기회와 연결합니다. 소셜 임팩트 AX 서비스",
   openGraph: {
     title: "웰비컴퍼니",
-    description: "제주의 자산을 AI로 전환하고, 더 넓은 기회와 연결합니다",
+    description: "(주)웰비컴퍼니 — 제주의 자산을 AI로 전환하고, 더 넓은 기회와 연결합니다. 소셜 임팩트 AX 서비스",
     url: "https://wellbcompany.ai",
     siteName: "웰비컴퍼니",
     images: [
@@ -27,14 +27,53 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "웰비컴퍼니",
-    description: "제주의 자산을 AI로 전환하고, 더 넓은 기회와 연결합니다",
+    description: "(주)웰비컴퍼니 — 제주의 자산을 AI로 전환하고, 더 넓은 기회와 연결합니다. 소셜 임팩트 AX 서비스",
     images: ["/images/company_og.png"],
+  },
+  verification: {
+    google: "45_E_Ze6g2xEPxInkgETD67rub7X3pcPqe1Y-9ok-GU",
+    other: {
+      "naver-site-verification": ["757c335c28033fa28594c1f04f2fc917e2b210e1"],
+    },
+  },
+};
+
+/* JSON-LD Organization structured data for rich search results */
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "(주)웰비컴퍼니",
+  alternateName: ["WellB Company", "웰비컴퍼니", "wellbcompany"],
+  url: "https://wellbcompany.ai",
+  logo: "https://wellbcompany.ai/images/wellb_logo.png",
+  description:
+    "제주의 자산을 AI로 전환하고, 더 넓은 기회와 연결하는 소셜 임팩트 AX 기업",
+  foundingDate: "2024",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "연삼로 716, 1층 102호",
+    addressLocality: "제주시",
+    addressRegion: "제주특별자치도",
+    addressCountry: "KR",
+  },
+  telephone: "064-787-9912",
+  email: "wellb.offical@gmail.com",
+  taxID: "609-86-28551",
+  sameAs: ["https://wellb-openlab.vercel.app"],
+  founder: {
+    "@type": "Person",
+    name: "김연진",
   },
 };
 
 export default function CompanySiteLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <div className="min-h-screen flex flex-col bg-[#fbfdfa] text-[var(--color-company-ink)] font-sans antialiased selection:bg-[#46613b]/20 selection:text-[#152014]">
+      {/* Organization Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+      />
       {/* Top tier Glassmorphism Header */}
       <header className="sticky top-0 z-50 h-20 bg-white/90 backdrop-blur-md border-b border-[#344a2c]/10 transition-all duration-300">
         <div className="h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4 sm:gap-8">
