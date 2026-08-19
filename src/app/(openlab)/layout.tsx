@@ -99,9 +99,6 @@ export default async function OpenLabLayout({ children }: Readonly<{ children: R
             <p className="font-semibold text-gray-700">
               © 2026 WELLB OPENLAB. 모든 아이디어의 권리는 제안자에게 직접 귀속됩니다.
             </p>
-            <p className="text-gray-400 text-[11px]">
-              * JDC와의 관계는 공식 협약 전까지 <code className="bg-gray-100 px-1 py-0.5 rounded text-gray-600">proposal</code> 상태이며, 공식 후원/공동주최를 의미하지 않습니다.
-            </p>
           </div>
           <div className="flex items-center gap-4 shrink-0">
             <Link href={safeRoute("/company")} className="text-emerald-700 hover:underline font-bold flex items-center gap-1 whitespace-nowrap">
