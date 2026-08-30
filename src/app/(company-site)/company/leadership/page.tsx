@@ -465,7 +465,7 @@ export default async function CompanyLeadershipPage({
                   <p className="text-xs text-gray-600 leading-relaxed">{p.desc}</p>
                 </div>
                 <div className="pt-4 border-t border-gray-100 text-xs font-bold text-gray-500">
-                  <span>리더십: </span>
+                  <span>{dict.leadership.synergy.leadershipLabel}</span>
                   <span className="text-gray-800">{p.lead}</span>
                 </div>
               </ScrollReveal>

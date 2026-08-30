@@ -46,6 +46,49 @@
     "ctaOpenlab": "OPENLABに参加する",
     "pipelineEyebrow": "AX Execution Framework",
     "pipelineTitle": "課題発掘からAI実証、現場定着までの一貫体制",
+    "pipeline": {
+      "steps": {
+        "discover": {
+          "title": "1. Discover",
+          "subtitle": "課題およびナレッジの発掘",
+          "desc": "現場の課題と地域資源を、AIが容易に理解できる構造化された形式で収集します。",
+          "kpi": "現場課題収集率 100%",
+          "b1": "利用状況別ユーザー質問の構造化",
+          "b2": "地域資産のファクトデータ変換",
+          "b3": "公共ナレッジのAI判読型整理"
+        },
+        "structure": {
+          "title": "2. Structure",
+          "subtitle": "AIデータファブリック化",
+          "desc": "非構造化された現場データと公共ナレッジを、AIが検索・推薦可能な構造へと転換します。",
+          "kpi": "AI検索による発見可能性を最大化",
+          "b1": "RAGナレッジベースの構築",
+          "b2": "マルチモーダル文脈の連携",
+          "b3": "AI向けデジタルプロファイル構築"
+        },
+        "connect": {
+          "title": "3. Connect",
+          "subtitle": "ビジネスおよびパートナーマッチング",
+          "desc": "AIが判読した価値を、実地訪問・相談・取引・海外パートナーシップへと直結させます。",
+          "kpi": "グローバルパートナーシップを有機的に接続",
+          "b1": "状況基準サービス条件マッチング",
+          "b2": "マイクロ取引パートナーシップ",
+          "b3": "グローバルAIマッチングチャネル"
+        },
+        "impact": {
+          "title": "4. Impact",
+          "subtitle": "ソーシャルインパクトの拡大",
+          "desc": "技術の効率化を超え、住民のAI活用能力強化と持続可能な地域雇用の創出へと拡大します。",
+          "kpi": "包摂的なAIエコシステムの構築",
+          "b1": "成果物中心の住民向け研修",
+          "b2": "地域AI雇用ロールの創出",
+          "b3": "社会的弱者参画リビングラボ実証"
+        }
+      },
+      "flowInput": "INPUT: REAL WORLD PROBLEMS",
+      "flowCenter": "WELLB AX EXECUTION FRAMEWORK",
+      "flowOutput": "OUTPUT: SUSTAINABLE IMPACT"
+    },
     "practiceEyebrow": "Key Practice Areas",
     "practiceTitle": "企業と地域が直面する実行課題をAIで解決します",
     "enterpriseAxBadge": "企業・機関向けAX",
@@ -103,6 +146,7 @@
       "eyebrow": "EXECUTIVE SYNERGY MODEL",
       "title": "戦略 × 技術 × 現場実証のトライアングルシナジー",
       "desc": "グローバルヘルスケア事業の戦略眼と、ソウル大学物理学および産業AIの高度な技術力が有機的に連動し、企画から現場定着まで迅速・確実に完結します。",
+      "leadershipLabel": "統括: ",
       "p1Role": "Strategy & Impact",
       "p1Lead": "CEO 金蓮振",
       "p1Title": "グローバル事業洞察 ＆ 地域連携",
@@ -353,6 +397,17 @@
       "title": "済州AIイノベーションフォーラム",
       "desc": "AI活用、雇用創出、デジタル包摂を済州の現場で民間実行モデルとして実現するためのソーシャルフォーラム提案です。",
       "disclaimer": "※ JDCとの関係は公式協約締結までproposal状態です。JDCによる公式後援や共同主催を意味するものではありません。"
+    },
+    "evidenceModel": {
+      "eyebrow": "Governance & Trust Mechanism",
+      "title": "EVIDENCE MODEL",
+      "desc": "誇大表現を排し、明確なClaim（目標）、検証されたEvidence（根拠）、透明なStatus（状態）を公開します。",
+      "claimTitle": "1. Claim (目標)",
+      "claimDesc": "プロジェクトが解決しようとする明確な地域・企業課題と、具体的な解決目標を定義します。",
+      "evidenceTitle": "2. Evidence (根拠)",
+      "evidenceDesc": "現実に存在するサービス、実際の教育成果物、公共パートナーシップ、実証（Proof）データを直接公開します。",
+      "statusTitle": "3. Status (状態)",
+      "statusDesc": "運用・高度化中、試行運用中、準備中、そして推進提案段階（JDCフォーラム等）を明確に区分して提供します。"
     },
     "ctaTitle": "WELLB OPENLABで実証に参加する",
     "ctaDesc": "アイデアを投稿し、AIコーチと共に実証可能なプロジェクトへと発展させましょう。",

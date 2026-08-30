@@ -46,6 +46,49 @@
     "ctaOpenlab": "加入OPENLAB",
     "pipelineEyebrow": "AX Execution Framework",
     "pipelineTitle": "从问题发掘到AI实证与现场落地的全流程体系",
+    "pipeline": {
+      "steps": {
+        "discover": {
+          "title": "1. Discover",
+          "subtitle": "问题与知识发掘",
+          "desc": "以AI易于理解的提问和结构，收集业务现场的待解难题与地域特色资产。",
+          "kpi": "现场课题收集率 100%",
+          "b1": "场景化客户意图结构化",
+          "b2": "地域资产事实数据转化",
+          "b3": "公共知识AI友好型整理"
+        },
+        "structure": {
+          "title": "2. Structure",
+          "subtitle": "AI数据织物重构",
+          "desc": "将非结构化的现场数据与公共知识转化为AI可检索与推荐的标准化架构。",
+          "kpi": "最大化AI搜索发现几率",
+          "b1": "企业级RAG知识库构建",
+          "b2": "多模态上下文深度关联",
+          "b3": "AI适配型数字档案沉淀"
+        },
+        "connect": {
+          "title": "3. Connect",
+          "subtitle": "商业与合作伙伴精准匹配",
+          "desc": "将AI解析出的高价值资产即时转化为实地探访、咨询、贸易交易与全球合作。",
+          "kpi": "全球合作伙伴有机联动",
+          "b1": "场景化服务匹配对接",
+          "b2": "微型商业合作履约",
+          "b3": "全球AI精准推荐渠道"
+        },
+        "impact": {
+          "title": "4. Impact",
+          "subtitle": "社会影响力辐射扩散",
+          "desc": "超越技术提效，全面提升公众AI素养并培育可持续的本土就业岗位。",
+          "kpi": "构建普惠包容的AI生态体系",
+          "b1": "成果交付导向型公众培训",
+          "b2": "区域新兴AI岗位孵化",
+          "b3": "弱势群体参与式实证"
+        }
+      },
+      "flowInput": "INPUT: REAL WORLD PROBLEMS",
+      "flowCenter": "WELLB AX EXECUTION FRAMEWORK",
+      "flowOutput": "OUTPUT: SUSTAINABLE IMPACT"
+    },
     "practiceEyebrow": "Key Practice Areas",
     "practiceTitle": "以AI赋能破解企业与地方发展的核心挑战",
     "enterpriseAxBadge": "企业与公共机构AX",
@@ -103,6 +146,7 @@
       "eyebrow": "EXECUTIVE SYNERGY MODEL",
       "title": "战略 × 技术 × 现场实证的三角协同效应",
       "desc": "全球大健康商业洞察与首尔大学物理学及工业AI硬核技术紧密协同，实现从方案规划到落地运营的高效闭环。",
+      "leadershipLabel": "主导: ",
       "p1Role": "Strategy & Impact",
       "p1Lead": "CEO 金莲振",
       "p1Title": "全球商业洞察 ＆ 区域联动",
@@ -353,6 +397,17 @@
       "title": "济州AI创新论坛",
       "desc": "旨在济州当地探索通过民间自主推进模式，连接AI技能普及、创新岗位孵化与数字包容的社会倡议论坛提案。",
       "disclaimer": "※ 与JDC的合作关系在正式签署协议前均处于提案(proposal)阶段，不代表JDC官方赞助或联合主办。"
+    },
+    "evidenceModel": {
+      "eyebrow": "Governance & Trust Mechanism",
+      "title": "EVIDENCE MODEL",
+      "desc": "摒弃夸大承诺，公开透明披露明确的目标(Claim)、经过验证的实证(Evidence)与当前状态(Status)。",
+      "claimTitle": "1. Claim (目标)",
+      "claimDesc": "清晰界定项目旨在破解的区域或企业具体痛点以及追求的明确解决目标。",
+      "evidenceTitle": "2. Evidence (实证)",
+      "evidenceDesc": "直接公开当前切实运转的服务、实际培训交付成果、公共机构合作及实证(Proof)数据。",
+      "statusTitle": "3. Status (状态)",
+      "statusDesc": "清晰区分运营升级中、试点运行中、筹备中以及推进提案阶段（如JDC论坛等）。"
     },
     "ctaTitle": "前往 WELLB OPENLAB 参与实证",
     "ctaDesc": "提交您的创新构想，与AI教练一起将其孵化为可落地验证的实证项目。",

@@ -132,7 +132,7 @@ export default async function CompanyHomePage({
           </ScrollReveal>
 
           {/* Interactive Pipeline Component */}
-          <DiscoverConnectPipeline />
+          <DiscoverConnectPipeline dict={dict.home.pipeline} />
         </div>
       </section>
 

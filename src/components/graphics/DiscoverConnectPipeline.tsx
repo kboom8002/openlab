@@ -2,63 +2,84 @@
 
 import { motion } from 'motion/react';
 import { Target, Cpu, Compass, Award, ArrowRight, CheckCircle2 } from 'lucide-react';
+import type { CompanyDictionary } from '@/lib/i18n';
 
-const steps = [
-  {
-    id: 'discover',
-    num: '01',
-    title: '1. Discover',
-    subtitle: '문제 및 지식 발굴',
-    desc: '현장의 해결 과제와 지역 자산을 AI가 쉽게 이해하는 질문과 구조로 수집합니다.',
-    kpi: '현장 과제 수집률 100%',
-    bullets: ['상황별 고객 질문 구조화', '지역 자산 팩트 데이터 변환', '공공 지식 AI 판독형 정리'],
-    icon: Target,
-    badgeBg: 'bg-emerald-100 text-emerald-900 border-emerald-300',
-    cardBg: 'bg-gradient-to-b from-emerald-50/80 to-white border-emerald-200/90',
-    iconBg: 'bg-emerald-700 text-white',
-  },
-  {
-    id: 'structure',
-    num: '02',
-    title: '2. Structure',
-    subtitle: 'AI 데이터 패브릭화',
-    desc: '비구조화된 현장 데이터와 공공 지식을 AI 검색 및 추천 가능한 구조로 전환합니다.',
-    kpi: 'AI 검색 발견 가능성 극대화',
-    bullets: ['RAG 지식 베이스 구축', '멀티모달 맥락 연계', 'AI 가이드 디지털 프로필'],
-    icon: Cpu,
-    badgeBg: 'bg-amber-100 text-amber-900 border-amber-300',
-    cardBg: 'bg-gradient-to-b from-amber-50/80 to-white border-amber-200/90',
-    iconBg: 'bg-amber-600 text-white',
-  },
-  {
-    id: 'connect',
-    num: '03',
-    title: '3. Connect',
-    subtitle: '비즈니스 및 파트너 매칭',
-    desc: 'AI가 판독한 가치를 방문, 문의, 거래 및 글로벌 파트너십과 즉각 연결합니다.',
-    kpi: '글로벌 파트너십 유기적 연결',
-    bullets: ['상황별 서비스 조건 매칭', '마이크로 거래 파트너십', '글로벌 AI 매칭 채널'],
-    icon: Compass,
-    badgeBg: 'bg-blue-100 text-blue-900 border-blue-300',
-    cardBg: 'bg-gradient-to-b from-blue-50/80 to-white border-blue-200/90',
-    iconBg: 'bg-blue-700 text-white',
-  },
-  {
-    id: 'impact',
-    num: '04',
-    title: '4. Impact',
-    subtitle: '소셜 임팩트 확산',
-    desc: '기술 효율을 넘어 도민 AI 역량 강화 및 지속가능한 지역 일자리로 확장합니다.',
-    kpi: '포용적 AI 생태계 구축',
-    bullets: ['산출물 중심 도민 교육', '지역 AI 직무 창출', '약자 참여 포용 실증'],
-    icon: Award,
-    badgeBg: 'bg-purple-100 text-purple-900 border-purple-300',
-    cardBg: 'bg-gradient-to-b from-purple-50/80 to-white border-purple-200/90',
-    iconBg: 'bg-purple-700 text-white',
-  },
-];
+interface DiscoverConnectPipelineProps {
+  dict: CompanyDictionary['home']['pipeline'];
+}
 
-export function DiscoverConnectPipeline() {
+export function DiscoverConnectPipeline({ dict }: DiscoverConnectPipelineProps) {
+  const steps = [
+    {
+      id: 'discover',
+      num: '01',
+      title: dict.steps.discover.title,
+      subtitle: dict.steps.discover.subtitle,
+      desc: dict.steps.discover.desc,
+      kpi: dict.steps.discover.kpi,
+      bullets: [
+        dict.steps.discover.b1,
+        dict.steps.discover.b2,
+        dict.steps.discover.b3,
+      ],
+      icon: Target,
+      badgeBg: 'bg-emerald-100 text-emerald-900 border-emerald-300',
+      cardBg: 'bg-gradient-to-b from-emerald-50/80 to-white border-emerald-200/90',
+      iconBg: 'bg-emerald-700 text-white',
+    },
+    {
+      id: 'structure',
+      num: '02',
+      title: dict.steps.structure.title,
+      subtitle: dict.steps.structure.subtitle,
+      desc: dict.steps.structure.desc,
+      kpi: dict.steps.structure.kpi,
+      bullets: [
+        dict.steps.structure.b1,
+        dict.steps.structure.b2,
+        dict.steps.structure.b3,
+      ],
+      icon: Cpu,
+      badgeBg: 'bg-amber-100 text-amber-900 border-amber-300',
+      cardBg: 'bg-gradient-to-b from-amber-50/80 to-white border-amber-200/90',
+      iconBg: 'bg-amber-600 text-white',
+    },
+    {
+      id: 'connect',
+      num: '03',
+      title: dict.steps.connect.title,
+      subtitle: dict.steps.connect.subtitle,
+      desc: dict.steps.connect.desc,
+      kpi: dict.steps.connect.kpi,
+      bullets: [
+        dict.steps.connect.b1,
+        dict.steps.connect.b2,
+        dict.steps.connect.b3,
+      ],
+      icon: Compass,
+      badgeBg: 'bg-blue-100 text-blue-900 border-blue-300',
+      cardBg: 'bg-gradient-to-b from-blue-50/80 to-white border-blue-200/90',
+      iconBg: 'bg-blue-700 text-white',
+    },
+    {
+      id: 'impact',
+      num: '04',
+      title: dict.steps.impact.title,
+      subtitle: dict.steps.impact.subtitle,
+      desc: dict.steps.impact.desc,
+      kpi: dict.steps.impact.kpi,
+      bullets: [
+        dict.steps.impact.b1,
+        dict.steps.impact.b2,
+        dict.steps.impact.b3,
+      ],
+      icon: Award,
+      badgeBg: 'bg-purple-100 text-purple-900 border-purple-300',
+      cardBg: 'bg-gradient-to-b from-purple-50/80 to-white border-purple-200/90',
+      iconBg: 'bg-purple-700 text-white',
+    },
+  ];
+
   return (
     <div className="space-y-10 overflow-visible">
       {/* McKinsey Style Pipeline Cards */}
@@ -125,9 +146,9 @@ export function DiscoverConnectPipeline() {
       {/* Dynamic Animated Flow Line */}
       <div className="hidden lg:block bg-gradient-to-r from-emerald-950 via-emerald-900 to-slate-950 p-6 rounded-2xl text-white shadow-xl border border-emerald-800/40">
         <div className="flex items-center justify-between text-xs font-mono text-emerald-300 mb-2 font-bold">
-          <span>INPUT: REAL WORLD PROBLEMS</span>
-          <span>WELLB AX EXECUTION FRAMEWORK</span>
-          <span>OUTPUT: SUSTAINABLE IMPACT</span>
+          <span>{dict.flowInput}</span>
+          <span>{dict.flowCenter}</span>
+          <span>{dict.flowOutput}</span>
         </div>
         <div className="h-2.5 w-full bg-emerald-950 rounded-full overflow-hidden relative border border-emerald-800/50">
           <motion.div

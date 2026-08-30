@@ -46,6 +46,49 @@
     "ctaOpenlab": "OPENLAB 참여하기",
     "pipelineEyebrow": "AX Execution Framework",
     "pipelineTitle": "문제 발굴부터 AI 실증과 현장 정착까지",
+    "pipeline": {
+      "steps": {
+        "discover": {
+          "title": "1. Discover",
+          "subtitle": "문제 및 지식 발굴",
+          "desc": "현장의 해결 과제와 지역 자산을 AI가 쉽게 이해하는 질문과 구조로 수집합니다.",
+          "kpi": "현장 과제 수집률 100%",
+          "b1": "상황별 고객 질문 구조화",
+          "b2": "지역 자산 팩트 데이터 변환",
+          "b3": "공공 지식 AI 판독형 정리"
+        },
+        "structure": {
+          "title": "2. Structure",
+          "subtitle": "AI 데이터 패브릭화",
+          "desc": "비구조화된 현장 데이터와 공공 지식을 AI 검색 및 추천 가능한 구조로 전환합니다.",
+          "kpi": "AI 검색 발견 가능성 극대화",
+          "b1": "RAG 지식 베이스 구축",
+          "b2": "멀티모달 맥락 연계",
+          "b3": "AI 가이드 디지털 프로필"
+        },
+        "connect": {
+          "title": "3. Connect",
+          "subtitle": "비즈니스 및 파트너 매칭",
+          "desc": "AI가 판독한 가치를 방문, 문의, 거래 및 글로벌 파트너십과 즉각 연결합니다.",
+          "kpi": "글로벌 파트너십 유기적 연결",
+          "b1": "상황별 서비스 조건 매칭",
+          "b2": "마이크로 거래 파트너십",
+          "b3": "글로벌 AI 매칭 채널"
+        },
+        "impact": {
+          "title": "4. Impact",
+          "subtitle": "소셜 임팩트 확산",
+          "desc": "기술 효율을 넘어 도민 AI 역량 강화 및 지속가능한 지역 일자리로 확장합니다.",
+          "kpi": "포용적 AI 생태계 구축",
+          "b1": "산출물 중심 도민 교육",
+          "b2": "지역 AI 직무 창출",
+          "b3": "약자 참여 포용 실증"
+        }
+      },
+      "flowInput": "INPUT: REAL WORLD PROBLEMS",
+      "flowCenter": "WELLB AX EXECUTION FRAMEWORK",
+      "flowOutput": "OUTPUT: SUSTAINABLE IMPACT"
+    },
     "practiceEyebrow": "Key Practice Areas",
     "practiceTitle": "기업과 지역이 직면한 실행 과제를 AI로 풀어냅니다",
     "enterpriseAxBadge": "기업 · 기관 AX",
@@ -103,6 +146,7 @@
       "eyebrow": "EXECUTIVE SYNERGY MODEL",
       "title": "전략 × 기술 × 현장 실증의 3각 시너지",
       "desc": "글로벌 헬스케어 비즈니스 전략과 서울대 물리학 및 산업 AI 전문 기술이 유기적으로 맞물려, 기획부터 현장 안착까지 신속하고 안전하게 완결합니다.",
+      "leadershipLabel": "리더십: ",
       "p1Role": "Strategy & Impact",
       "p1Lead": "CEO 김연진",
       "p1Title": "글로벌 비즈니스 통찰 & 로컬 연계",
@@ -353,6 +397,17 @@
       "title": "제주 AI 혁신포럼",
       "desc": "AI 역량, 일자리, 포용적 활용을 제주 현장에서 민간 실행 모델로 연결하기 위한 소셜 이니셔티브 포럼 제안입니다.",
       "disclaimer": "* JDC와의 관계는 공식 협약 전까지 proposal 상태입니다. JDC 공식 후원 및 공동주최를 의미하지 않습니다."
+    },
+    "evidenceModel": {
+      "eyebrow": "Governance & Trust Mechanism",
+      "title": "EVIDENCE MODEL",
+      "desc": "과장된 성과 약속을 배제하고, 명확한 Claim, 검증된 Evidence, 투명한 Status를 공개합니다.",
+      "claimTitle": "1. Claim (목표)",
+      "claimDesc": "프로젝트가 해결하려는 명확한 지역·기업 문제와 추구하는 구체적 해결 목표를 분명하게 정의합니다.",
+      "evidenceTitle": "2. Evidence (근거)",
+      "evidenceDesc": "현재 실제로 존재하는 서비스, 실제 교육 산출물, 공공 파트너십 및 실증(Proof) 데이터를 직접 공개합니다.",
+      "statusTitle": "3. Status (상태)",
+      "statusDesc": "운영·고도화 중, 시범 운영 중, 준비 중, 그리고 추진 제안 단계(JDC 포럼 등)를 명확히 구별하여 제공합니다."
     },
     "ctaTitle": "WELLB OPENLAB에서 실증 참여하기",
     "ctaDesc": "아이디어를 제안하고 AI 코치와 함께 실증 프로젝트로 발전시키세요.",

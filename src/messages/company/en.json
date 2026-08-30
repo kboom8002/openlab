@@ -46,6 +46,49 @@
     "ctaOpenlab": "Join OPENLAB",
     "pipelineEyebrow": "AX Execution Framework",
     "pipelineTitle": "From Problem Discovery to AI Verification and Field Adoption",
+    "pipeline": {
+      "steps": {
+        "discover": {
+          "title": "1. Discover",
+          "subtitle": "Problem & Knowledge Discovery",
+          "desc": "Collecting on-site challenges and regional assets into structured formats that AI can seamlessly understand.",
+          "kpi": "100% On-site Problem Coverage",
+          "b1": "Contextual customer query structuring",
+          "b2": "Regional asset fact data conversion",
+          "b3": "Public knowledge AI-readable structuring"
+        },
+        "structure": {
+          "title": "2. Structure",
+          "subtitle": "AI Data Fabric Structuring",
+          "desc": "Transforming unstructured field data and public knowledge into AI-searchable and recommendable structures.",
+          "kpi": "Maximizing AI Search Discoverability",
+          "b1": "RAG knowledge base deployment",
+          "b2": "Multimodal contextual mapping",
+          "b3": "AI-guided digital profiles"
+        },
+        "connect": {
+          "title": "3. Connect",
+          "subtitle": "Business & Partner Matching",
+          "desc": "Instantly connecting AI-interpreted values to visits, inquiries, transactions, and global partnerships.",
+          "kpi": "Seamless Global Partnership Integration",
+          "b1": "Context-based service matching",
+          "b2": "Micro-transaction partnerships",
+          "b3": "Global AI matching channels"
+        },
+        "impact": {
+          "title": "4. Impact",
+          "subtitle": "Social Impact Amplification",
+          "desc": "Extending beyond technological efficiency to empower citizen AI capabilities and foster sustainable local jobs.",
+          "kpi": "Building an Inclusive AI Ecosystem",
+          "b1": "Deliverables-focused citizen training",
+          "b2": "Regional AI job role creation",
+          "b3": "Inclusive Living Lab trials"
+        }
+      },
+      "flowInput": "INPUT: REAL WORLD PROBLEMS",
+      "flowCenter": "WELLB AX EXECUTION FRAMEWORK",
+      "flowOutput": "OUTPUT: SUSTAINABLE IMPACT"
+    },
     "practiceEyebrow": "Key Practice Areas",
     "practiceTitle": "Solving Critical Enterprise and Regional Challenges through AI",
     "enterpriseAxBadge": "Enterprise & Public AX",
@@ -103,6 +146,7 @@
       "eyebrow": "EXECUTIVE SYNERGY MODEL",
       "title": "Strategy × Technology × Field Proof Synergy",
       "desc": "Global healthcare business strategy seamlessly unites with physics and industrial AI engineering to deliver projects from initial design to verified on-site adoption.",
+      "leadershipLabel": "Lead: ",
       "p1Role": "Strategy & Impact",
       "p1Lead": "CEO Yeon-jin Kim",
       "p1Title": "Global Business Insight & Regional Connection",
@@ -353,6 +397,17 @@
       "title": "Jeju AI Innovation Forum",
       "desc": "A social initiative forum proposal designed to establish private-sector execution models for AI capabilities, job creation, and digital inclusion in Jeju.",
       "disclaimer": "* The relationship with JDC is in proposal status pending formal agreement. It does not imply official sponsorship or co-hosting."
+    },
+    "evidenceModel": {
+      "eyebrow": "Governance & Trust Mechanism",
+      "title": "EVIDENCE MODEL",
+      "desc": "Excluding exaggerated claims, we disclose clear Claims, verified Evidence, and transparent Status.",
+      "claimTitle": "1. Claim (Objective)",
+      "claimDesc": "Clearly defining specific local/enterprise problems and concrete solution goals targeted by the project.",
+      "evidenceTitle": "2. Evidence (Proof)",
+      "evidenceDesc": "Disclosing actual existing services, real training deliverables, public partnerships, and empirical proof data.",
+      "statusTitle": "3. Status (Progress)",
+      "statusDesc": "Clearly distinguishing operational/evolving, pilot testing, in preparation, and proposal stages (e.g. JDC forum)."
     },
     "ctaTitle": "Participate in Empirical Trials at WELLB OPENLAB",
     "ctaDesc": "Submit your ideas and develop them into verifiable initiatives alongside AI coaches.",
