@@ -7,8 +7,13 @@ import { ScrollReveal, FadeIn } from "@/components/motion";
 import { EvidenceModelDiagram } from "@/components/graphics";
 import { ExternalLink } from "lucide-react";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const { locale, dict } = await getServerDictionary();
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams?: Promise<{ lang?: string }>;
+}): Promise<Metadata> {
+  const sp = searchParams ? await searchParams : undefined;
+  const { locale, dict } = await getServerDictionary(sp?.lang);
   return {
     title: dict.projects.metaTitle,
     description: dict.projects.metaDescription,
@@ -31,8 +36,13 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function CompanyProjectsPage() {
-  const { dict } = await getServerDictionary();
+export default async function CompanyProjectsPage({
+  searchParams,
+}: {
+  searchParams?: Promise<{ lang?: string }>;
+}) {
+  const sp = searchParams ? await searchParams : undefined;
+  const { dict } = await getServerDictionary(sp?.lang);
 
   return (
     <main className="py-16 space-y-16">

@@ -12,8 +12,13 @@ import {
   HeartHandshake,
 } from "lucide-react";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const { locale, dict } = await getServerDictionary();
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams?: Promise<{ lang?: string }>;
+}): Promise<Metadata> {
+  const sp = searchParams ? await searchParams : undefined;
+  const { locale, dict } = await getServerDictionary(sp?.lang);
   return {
     title: dict.impact.metaTitle,
     description: dict.impact.metaDescription,
@@ -36,8 +41,13 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function ImpactPage() {
-  const { dict } = await getServerDictionary();
+export default async function ImpactPage({
+  searchParams,
+}: {
+  searchParams?: Promise<{ lang?: string }>;
+}) {
+  const sp = searchParams ? await searchParams : undefined;
+  const { dict } = await getServerDictionary(sp?.lang);
 
   const pillars = [
     {

@@ -15,8 +15,13 @@ import {
   ExternalLink,
 } from "lucide-react";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const { locale, dict } = await getServerDictionary();
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams?: Promise<{ lang?: string }>;
+}): Promise<Metadata> {
+  const sp = searchParams ? await searchParams : undefined;
+  const { locale, dict } = await getServerDictionary(sp?.lang);
   return {
     title: dict.jejuToGlobal.metaTitle,
     description: dict.jejuToGlobal.metaDescription,
@@ -39,8 +44,13 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function JejuToGlobalPage() {
-  const { dict } = await getServerDictionary();
+export default async function JejuToGlobalPage({
+  searchParams,
+}: {
+  searchParams?: Promise<{ lang?: string }>;
+}) {
+  const sp = searchParams ? await searchParams : undefined;
+  const { dict } = await getServerDictionary(sp?.lang);
 
   const targets = [
     {

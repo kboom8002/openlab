@@ -21,8 +21,13 @@ import {
   Terminal,
 } from "lucide-react";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const { locale, dict } = await getServerDictionary();
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams?: Promise<{ lang?: string }>;
+}): Promise<Metadata> {
+  const sp = searchParams ? await searchParams : undefined;
+  const { locale, dict } = await getServerDictionary(sp?.lang);
   return {
     title: dict.leadership.metaTitle,
     description: dict.leadership.metaDescription,
@@ -137,8 +142,13 @@ const ctoCareersZh = [
   "前 釜山广域市 AI委员会 委员",
 ];
 
-export default async function CompanyLeadershipPage() {
-  const { locale, dict } = await getServerDictionary();
+export default async function CompanyLeadershipPage({
+  searchParams,
+}: {
+  searchParams?: Promise<{ lang?: string }>;
+}) {
+  const sp = searchParams ? await searchParams : undefined;
+  const { locale, dict } = await getServerDictionary(sp?.lang);
 
   const ceoCareers =
     locale === "en"

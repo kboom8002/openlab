@@ -4,8 +4,13 @@ import { safeRoute } from "@/lib/routes";
 import { localeToOgLocale } from "@/lib/i18n";
 import { getServerDictionary } from "@/lib/i18n/server";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const { locale, dict } = await getServerDictionary();
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams?: Promise<{ lang?: string }>;
+}): Promise<Metadata> {
+  const sp = searchParams ? await searchParams : undefined;
+  const { locale, dict } = await getServerDictionary(sp?.lang);
   return {
     title: dict.privacy.metaTitle,
     description: dict.privacy.metaDescription,
@@ -28,8 +33,13 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function Privacy() {
-  const { dict } = await getServerDictionary();
+export default async function Privacy({
+  searchParams,
+}: {
+  searchParams?: Promise<{ lang?: string }>;
+}) {
+  const sp = searchParams ? await searchParams : undefined;
+  const { dict } = await getServerDictionary(sp?.lang);
 
   return (
     <main id="main">
