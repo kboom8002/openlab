@@ -1,4 +1,4 @@
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { locales, defaultLocale, type Locale } from "./config";
 import { getCompanyDictionary, type CompanyDictionary } from "./dictionary";
 
@@ -6,6 +6,17 @@ export async function getCurrentLocale(searchParamsLang?: string): Promise<Local
   if (searchParamsLang && locales.includes(searchParamsLang as Locale)) {
     return searchParamsLang as Locale;
   }
+
+  try {
+    const headerStore = await headers();
+    const headerLocale = headerStore.get("x-wellb-locale");
+    if (headerLocale && locales.includes(headerLocale as Locale)) {
+      return headerLocale as Locale;
+    }
+  } catch {
+    // headers() might not be available in some execution contexts
+  }
+
   try {
     const cookieStore = await cookies();
     const cookieLocale =
@@ -16,6 +27,7 @@ export async function getCurrentLocale(searchParamsLang?: string): Promise<Local
   } catch {
     // If called in a context where cookies() is unavailable, fallback to default
   }
+
   return defaultLocale;
 }
 
