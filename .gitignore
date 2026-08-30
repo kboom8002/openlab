@@ -23,6 +23,7 @@ Thumbs.db
 
 # Antigravity agent state
 .gemini/
+scratch/
 
 
 .vercel

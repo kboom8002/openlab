@@ -2,38 +2,46 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { safeRoute } from "@/lib/routes";
-import { ScrollReveal, StaggerChildren, StaggerItem, FadeIn } from "@/components/motion";
+import { localeToOgLocale } from "@/lib/i18n";
+import { getServerDictionary } from "@/lib/i18n/server";
+import { ScrollReveal, FadeIn } from "@/components/motion";
 import { DiscoverConnectPipeline } from "@/components/graphics";
-import { ArrowRight, Sparkles, CheckCircle2, TrendingUp, Compass, ExternalLink, Globe } from "lucide-react";
+import {
+  ArrowRight,
+  Sparkles,
+  CheckCircle2,
+  Compass,
+  ExternalLink,
+  Globe,
+} from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "웰비컴퍼니",
-  description: "제주의 자산을 AI로 전환하고, 더 넓은 기회와 연결합니다",
-  openGraph: {
-    title: "웰비컴퍼니",
-    description: "제주의 자산을 AI로 전환하고, 더 넓은 기회와 연결합니다",
-    url: "https://wellbcompany.ai",
-    siteName: "웰비컴퍼니",
-    images: [
-      {
-        url: "/images/company_og.png",
-        width: 1200,
-        height: 630,
-        alt: "웰비컴퍼니 - 제주의 자산을 AI로 전환하고, 더 넓은 기회와 연결합니다",
-      },
-    ],
-    locale: "ko_KR",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "웰비컴퍼니",
-    description: "제주의 자산을 AI로 전환하고, 더 넓은 기회와 연결합니다",
-    images: ["/images/company_og.png"],
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const { locale, dict } = await getServerDictionary();
+  return {
+    title: dict.home.metaTitle,
+    description: dict.home.metaDescription,
+    openGraph: {
+      title: dict.home.metaTitle,
+      description: dict.home.metaDescription,
+      url: "https://wellbcompany.ai",
+      siteName: "웰비컴퍼니",
+      images: [
+        {
+          url: "/images/company_og.png",
+          width: 1200,
+          height: 630,
+          alt: "웰비컴퍼니 - 제주의 자산을 AI로 전환하고, 더 넓은 기회와 연결합니다",
+        },
+      ],
+      locale: localeToOgLocale[locale],
+      type: "website",
+    },
+  };
+}
 
-export default function CompanyHomePage() {
+export default async function CompanyHomePage() {
+  const { dict } = await getServerDictionary();
+
   return (
     <main className="overflow-visible">
       {/* Top Tier McKinsey Style Hero Section */}
@@ -44,15 +52,15 @@ export default function CompanyHomePage() {
             <FadeIn duration={0.8} yOffset={24} className="lg:col-span-7 space-y-6 overflow-visible">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#344a2c]/10 text-[var(--color-company-forest)] text-xs font-extrabold uppercase tracking-wider">
                 <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-                <span>Social Impact AX Partner</span>
+                <span>{dict.home.badge}</span>
               </div>
-              
+
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[var(--color-company-ink)] tracking-tight leading-[1.3] pt-2 overflow-visible">
-                제주의 자산을 <span className="text-[var(--color-company-forest)] underline decoration-amber-500/40 decoration-4 underline-offset-8">AI로 전환</span>하고,<br className="hidden sm:block" /> 더 넓은 기회와 연결합니다
+                {dict.home.heroTitle}
               </h1>
 
               <p className="text-base sm:text-lg text-[var(--color-company-muted)] font-medium leading-relaxed max-w-xl">
-                웰비컴퍼니는 지역 현장의 문제와 자산을 AI 판독형 디지털 구조로 전환하고, 기업·기관·도민이 함께 성장하는 소셜 임팩트 AX 서비스를 구축합니다.
+                {dict.home.heroLead}
               </p>
 
               <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -61,15 +69,17 @@ export default function CompanyHomePage() {
                   className="inline-flex items-center justify-center gap-2 bg-emerald-800 hover:bg-emerald-700 !text-white font-extrabold text-sm h-12 px-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-200"
                   style={{ color: "#ffffff" }}
                 >
-                  <span className="font-extrabold" style={{ color: "#ffffff" }}>프로젝트 문의</span>
+                  <span className="font-extrabold" style={{ color: "#ffffff" }}>
+                    {dict.home.ctaContact}
+                  </span>
                   <ArrowRight className="w-4 h-4" style={{ color: "#ffffff" }} />
                 </Link>
                 <a
                   href="https://wellb-openlab.vercel.app/"
-                  className="inline-flex items-center justify-center gap-2 bg-white hover:bg-emerald-50/50 text-[var(--color-company-forest)] font-bold text-sm h-12 px-6 rounded-xl border border-[var(--color-company-forest)]/30 shadow-xs transition-all duration-200 text-decoration-none"
+                  className="inline-flex items-center justify-center gap-2 bg-white hover:bg-emerald-50/50 text-[var(--color-company-forest)] font-bold text-sm h-12 px-6 rounded-xl border border-[var(--color-company-forest)]/30 shadow-2xs transition-all duration-200 text-decoration-none"
                 >
                   <Compass className="w-4 h-4 text-emerald-600" />
-                  <span>OPENLAB 참여하기</span>
+                  <span>{dict.home.ctaOpenlab}</span>
                 </a>
               </div>
             </FadeIn>
@@ -103,9 +113,11 @@ export default function CompanyHomePage() {
       <section className="py-24 bg-white border-b border-gray-100 overflow-visible">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 overflow-visible">
           <ScrollReveal direction="up" className="text-center max-w-3xl mx-auto overflow-visible pt-4">
-            <h2 className="text-xs font-extrabold uppercase tracking-widest text-emerald-800 mb-3">AX Execution Framework</h2>
+            <h2 className="text-xs font-extrabold uppercase tracking-widest text-emerald-800 mb-3">
+              {dict.home.pipelineEyebrow}
+            </h2>
             <p className="text-3xl sm:text-4xl font-black tracking-tight text-gray-950 leading-[1.35] pt-1 overflow-visible">
-              문제 발굴부터 AI 실증과 현장 정착까지
+              {dict.home.pipelineTitle}
             </p>
           </ScrollReveal>
 
@@ -118,15 +130,21 @@ export default function CompanyHomePage() {
       <section className="py-24 bg-[#f6f9f5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           <ScrollReveal direction="up" className="max-w-3xl pt-2">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[var(--color-company-forest)]">Key Practice Areas</span>
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[var(--color-company-forest)]">
+              {dict.home.practiceEyebrow}
+            </span>
             <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mt-2 leading-[1.35]">
-              기업과 지역이 직면한 실행 과제를 AI로 풀어냅니다
+              {dict.home.practiceTitle}
             </h2>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* Enterprise AX Card */}
-            <ScrollReveal direction="up" delay={0.1} className="p-8 rounded-3xl bg-white border border-gray-200 shadow-sm hover:shadow-lg transition-all space-y-6 flex flex-col justify-between">
+            <ScrollReveal
+              direction="up"
+              delay={0.1}
+              className="p-8 rounded-3xl bg-white border border-gray-200 shadow-sm hover:shadow-lg transition-all space-y-6 flex flex-col justify-between"
+            >
               <div className="space-y-4">
                 <div className="relative w-full h-52 rounded-2xl overflow-hidden bg-gray-100">
                   <Image
@@ -136,23 +154,32 @@ export default function CompanyHomePage() {
                     sizes="(max-width: 1024px) 100vw, 40vw"
                     className="object-cover hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold bg-white/90 backdrop-blur-md text-emerald-900 shadow-xs">
-                    기업 · 기관 AX
+                  <div className="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold bg-white/90 backdrop-blur-md text-emerald-900 shadow-2xs">
+                    {dict.home.enterpriseAxBadge}
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">Enterprise AX Transformation</h3>
+                <h3 className="text-2xl font-bold text-gray-900">
+                  {dict.home.enterpriseAxTitle}
+                </h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  조직 내부 지식의 디지털 구조화, 업무 생산성 향상을 위한 전용 AI 워크플로 구축 및 현장 사용자 교육을 종합 제공합니다.
+                  {dict.home.enterpriseAxDesc}
                 </p>
               </div>
-              <Link href={safeRoute("/company/ax-solutions")} className="inline-flex items-center gap-2 text-xs font-bold text-[var(--color-company-forest)] hover:underline pt-2">
-                <span>AX 솔루션 상세 보기</span>
+              <Link
+                href={safeRoute("/company/ax-solutions")}
+                className="inline-flex items-center gap-2 text-xs font-bold text-[var(--color-company-forest)] hover:underline pt-2"
+              >
+                <span>{dict.home.enterpriseAxLink}</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </ScrollReveal>
 
             {/* Jeju to Global Card */}
-            <ScrollReveal direction="up" delay={0.2} className="p-8 rounded-3xl bg-white border border-gray-200 shadow-sm hover:shadow-lg transition-all space-y-6 flex flex-col justify-between">
+            <ScrollReveal
+              direction="up"
+              delay={0.2}
+              className="p-8 rounded-3xl bg-white border border-gray-200 shadow-sm hover:shadow-lg transition-all space-y-6 flex flex-col justify-between"
+            >
               <div className="space-y-4">
                 <div className="relative w-full h-52 rounded-2xl overflow-hidden bg-gray-100">
                   <Image
@@ -162,19 +189,24 @@ export default function CompanyHomePage() {
                     sizes="(max-width: 1024px) 100vw, 40vw"
                     className="object-cover hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold bg-white/90 backdrop-blur-md text-amber-900 shadow-xs">
-                    지역 · 브랜드 AX
+                  <div className="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold bg-white/90 backdrop-blur-md text-amber-900 shadow-2xs">
+                    {dict.home.jejuGlobalBadge}
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">Jeju-to-Global Platform</h3>
+                <h3 className="text-2xl font-bold text-gray-900">
+                  {dict.home.jejuGlobalTitle}
+                </h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  제주의 차별화된 관광·문화·로컬 브랜드 자산을 글로벌 AI 검색 추천 시스템에 매칭시켜 고객 발견 기회를 극대화합니다.
+                  {dict.home.jejuGlobalDesc}
                 </p>
               </div>
-              
+
               <div className="pt-2 flex flex-wrap items-center justify-between gap-3 border-t border-gray-100">
-                <Link href={safeRoute("/company/jeju-to-global")} className="inline-flex items-center gap-1.5 text-xs font-bold text-[var(--color-company-forest)] hover:underline">
-                  <span>Jeju-to-global 상세 보기</span>
+                <Link
+                  href={safeRoute("/company/jeju-to-global")}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[var(--color-company-forest)] hover:underline"
+                >
+                  <span>{dict.home.jejuGlobalLink}</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <a
@@ -185,7 +217,9 @@ export default function CompanyHomePage() {
                   style={{ color: "#ffffff" }}
                 >
                   <Globe className="w-3.5 h-3.5" style={{ color: "#ffffff" }} />
-                  <span className="font-extrabold" style={{ color: "#ffffff" }}>Jeju-to-Global 바로가기</span>
+                  <span className="font-extrabold" style={{ color: "#ffffff" }}>
+                    {dict.home.jejuGlobalDirect}
+                  </span>
                   <ExternalLink className="w-3.5 h-3.5 opacity-90" style={{ color: "#ffffff" }} />
                 </a>
               </div>
@@ -198,9 +232,9 @@ export default function CompanyHomePage() {
       <section className="py-20 bg-gradient-to-r from-[#1b2b18] via-[#243a20] to-[#1b2b18] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <ScrollReveal direction="up">
-            <h2 className="text-3xl sm:text-4xl font-black">함께 만드는 AI 소셜 임팩트</h2>
+            <h2 className="text-3xl sm:text-4xl font-black">{dict.home.ctaBandTitle}</h2>
             <p className="text-emerald-200/80 text-base max-w-xl mx-auto mt-2">
-              웰비컴퍼니와 함께 귀사 및 지역 사회의 과제를 AI 이니셔티브로 전환해보세요.
+              {dict.home.ctaBandDesc}
             </p>
             <div className="flex justify-center gap-4 pt-4">
               <Link
@@ -208,7 +242,9 @@ export default function CompanyHomePage() {
                 className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 !text-gray-950 font-black text-sm h-12 px-6 rounded-xl shadow-lg transition-all"
                 style={{ color: "#030712" }}
               >
-                <span className="font-extrabold" style={{ color: "#030712" }}>프로젝트 협력 논의</span>
+                <span className="font-extrabold" style={{ color: "#030712" }}>
+                  {dict.home.ctaBandButton}
+                </span>
                 <CheckCircle2 className="w-4 h-4" style={{ color: "#030712" }} />
               </Link>
             </div>
